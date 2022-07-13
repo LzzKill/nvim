@@ -1,3 +1,7 @@
+" Packer插件管理
+lua require('plugins')
+" Terrsitter 插件;w
+lua require('plugin-config/nvim-treesitter')
 "--table-mode--"""
 let g:table_mode_corner = '|'
 let g:table_mode_border=0
@@ -28,7 +32,9 @@ map <F2> <nop>
 map <F1> <nop>
 
 map } $
-map fp :PlugInstall<CR>
+map fi :PackerInstall<CR>
+map fs :PackerStatus<CR>
+map ff :FZF<CR>
 
 map Q :q <CR>
 map E :w <CR>
@@ -221,64 +227,4 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
 let g:UltiSnipsSnippetDirectories=["path/of/snippetDirectories"]
 let g:UltiSnipsEditSplit="vertical"
-
-"Plug.vim
-call plug#begin('~/.config/nvim/plugged')
-if has('win32') || has('win64')
-    Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-else
-    Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-endif
-
-"airline and its themes
-Plug 'vim-airline/vim-airline'      
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'kien/rainbow_parentheses.vim' "彩虹括号
-Plug 'dag/vim-fish' "fish terminal
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'majutsushi/tagbar'
-Plug 'rust-lang/rust.vim' "vim rust
-Plug 'suan/vim-instant-markdown'
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'iamcco/markdown-preview.vim'
-Plug 'dhruvasagar/vim-table-mode'
-"YouCompleteMe
-Plug 'tabnine/YouCompleteMe'
-
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic' "语法检查机
-
-Plug 'jiangmiao/auto-pairs'
-Plug 'tenfyzhong/CompleteParameter.vim'
-
-Plug 'tpope/vim-fugitive'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
-Plug 'yggdroot/indentline'  "从此告别游标卡尺
-
-Plug 'preservim/nerdcommenter'
-"TypeScript
-Plug 'leafgarland/typescript-vim'
-
-"HTML
-
-Plug 'mattn/emmet-vim'
-
-" Vim Color
-Plug 'morhetz/gruvbox'
-Plug 'yuttie/inkstained-vim'
-Plug 'sainnhe/gruvbox-material'
-Plug 'tyrannicaltoucan/vim-quantum'
-" 多光标
-Plug 'mg979/vim-visual-multi'
-
-"格式化
-Plug 'Chiel92/vim-autoformat'
-"Cmake
-Plug 'vhdirk/vim-cmake'
-call plug#end()
 
