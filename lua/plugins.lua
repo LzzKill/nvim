@@ -27,7 +27,6 @@ return require('packer').startup( {
         use 'iamcco/mathjax-support-for-mkdp'
         use 'iamcco/markdown-preview.vim'
         use 'dhruvasagar/vim-table-mode'
-        use 'tabnine/YouCompleteMe'
         use 'scrooloose/nerdtree'
         use 'scrooloose/syntastic' 
         use 'jiangmiao/auto-pairs'
@@ -36,9 +35,11 @@ return require('packer').startup( {
         use 'francoiscabrol/ranger.vim'
         --[[coc.nvim--]]
         use {'neoclide/coc.nvim', branch = 'release'}
-
+        use 'ycm-core/YouCompleteMe'
+        use {'tbodt/deoplete-tabnine', run = './install.sh'}
         use 'yggdroot/indentline'  
         use 'preservim/nerdcommenter'
+        use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
         use 'leafgarland/typescript-vim'
         use 'mattn/emmet-vim'
         use 'morhetz/gruvbox'
