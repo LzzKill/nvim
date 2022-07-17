@@ -77,17 +77,32 @@ _G.packer_plugins = {
   YouCompleteMe = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/YouCompleteMe",
-    url = "https://github.com/tabnine/YouCompleteMe"
+    url = "https://github.com/ycm-core/YouCompleteMe"
   },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  ["coc-spell-check"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/coc-spell-check",
+    url = "https://github.com/iamcco/coc-spell-check"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["deoplete-tabnine"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/deoplete-tabnine",
+    url = "https://github.com/tbodt/deoplete-tabnine"
+  },
+  ["deoplete.nvim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
+    url = "https://github.com/Shougo/deoplete.nvim"
   },
   ["emmet-vim"] = {
     loaded = true,
@@ -139,10 +154,20 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-fzf",
     url = "https://github.com/vijaymarupudi/nvim-fzf"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["rainbow_parentheses.vim"] = {
     loaded = true,
