@@ -42,7 +42,7 @@ let g:airline_theme='quantum'
 "--Vim--"
 set background=dark
 
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
 "--Vim--"
 
 "--MarkDown--"
@@ -129,8 +129,7 @@ let g:rbpt_colorpairs = [
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-
-autocmd VimEnter *  colorscheme gruvbox-material
+autocmd VimEnter *  colorscheme default
 autocmd VimEnter *  RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare

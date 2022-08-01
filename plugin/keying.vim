@@ -1,4 +1,17 @@
 "--Keymaps--"
+
+inoremap <Alt-h> <Right>i
+inoremap <Alt-j> <Down>i
+inoremap <Alt-k> <Up>i
+inoremap <Alt-l> <Left>i
+
+
+map <space> <leader>
+map <leader>p :Prettier<CR>
+map fb :Bracey <CR>
+
+map fr :BraceyReload <CR>
+
 map U <nop>
 map c <nop>
 map S <nop>

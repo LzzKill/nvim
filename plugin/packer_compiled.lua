@@ -179,11 +179,6 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/ranger.vim",
     url = "https://github.com/francoiscabrol/ranger.vim"
   },
-  ["rust.vim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/rust.vim",
-    url = "https://github.com/rust-lang/rust.vim"
-  },
   syntastic = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/syntastic",
