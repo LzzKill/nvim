@@ -29,12 +29,14 @@ return require('packer').startup( {
         use 'iamcco/mathjax-support-for-mkdp'
         use 'iamcco/markdown-preview.vim'
         use 'dhruvasagar/vim-table-mode'
-        
-        use 'scrooloose/nerdtree'
-        --[[NERD tree's plug]]
 
-        use 'ryanoasis/vim-devicons'
-
+        use {
+            'kyazdani42/nvim-tree.lua',
+            requires = {
+                'kyazdani42/nvim-web-devicons', -- optional, for file icons
+            },
+            tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        }
 
         use 'scrooloose/syntastic' 
         use 'jiangmiao/auto-pairs'
@@ -67,14 +69,14 @@ return require('packer').startup( {
         --[[Kotlin]]
         use 'udalov/kotlin-vim'        
 
-            end,
+    end,
     config = {
-		max_jobs = 16,
-		display = {
-			open_fn = function()
-				return require('packer.util').float({ border = 'single' })
-			end
-		}
-	}
+        max_jobs = 16,
+        display = {
+            open_fn = function()
+                return require('packer.util').float({ border = 'single' })
+            end
+        }
+    }
 
 })
