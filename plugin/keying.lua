@@ -1,7 +1,6 @@
 local map = vim.api.nvim_set_keymap
-
-map('n', '<space>', '<leader>', {noremap = true})
-map('n', '<leader>p', ':Prettier', {noremap = true})
+vim.g['mapleader']=" "
+map('n', '<leader>p', ':Prettier<CR>', {noremap = true})
 map('n', 'fb', ':Bracey<CR>', {noremap = true})
 map('n', 'fr', ':BraceyReload<CR>', {noremap = true})
 
