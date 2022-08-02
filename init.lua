@@ -1,6 +1,6 @@
 -- Packer插件管理
 require('plugins')
-
+require('mapping/keying')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/nvim-tree')
 
@@ -12,6 +12,7 @@ vim.g['table_mode_fillchar']='='
 
 --airline--
 vim.g['airline_theme']='quantum'
+vim.g['airline_powerline_fonts']='0'
 --airline--
 
 --MarkDown--
