@@ -47,7 +47,6 @@ return require('packer').startup( {
         --[[coc.nvim--]]
         use 'preservim/nerdcommenter'
         use {'neoclide/coc.nvim', branch = 'release'}
-        use 'ycm-core/YouCompleteMe'
         use {'tbodt/deoplete-tabnine', run = './install.sh'}
         use 'yggdroot/indentline'  
         use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
