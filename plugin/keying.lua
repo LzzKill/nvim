@@ -11,8 +11,6 @@ map('n', 'm', '<nop>', {noremap = true})
 map('n', '<F2>', '<nop>', {noremap = true})
 map('n', '<F1>', '<nop>', {noremap = true})
 
-map('n', '<Tab>', '$', {noremap = true})
-
 map('n', 'fi', ':PackerInstall<CR>', {noremap = true})
 map('n', 'fs', ':PackerSync<CR>', {noremap = true})
 map('n', 'fS', ':PackerStatus<CR>', {noremap = true})
