@@ -3,17 +3,13 @@ require('plugins')
 require('mapping/keying')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/nvim-tree')
+require('plugin-config/lualine')
 
 --table-mode--
 vim.g['table_mode_corner']='|'
 vim.g['table_mode_border']=0
 vim.g['table_mode_fillchar']='='
 
-
---airline--
-vim.g['airline_theme']='quantum'
-vim.g['airline_powerline_fonts']='0'
---airline--
 
 --MarkDown--
 vim.g['mkdp_browser']='firefox'
@@ -49,3 +45,13 @@ vim.g['UltiSnipsJumpForwardTrigger']='<tab>'
 vim.g['UltiSnipsJumpBackwardTrigger']='<S-tab>'
 vim.g['UltiSnipsSnippetDirectories']={"path/of/snippetDirectories"}
 vim.g['UltiSnipsEditSplit']="vertical"
+
+vim.g['floaterm_keymap_new']='<Leader>tn'
+vim.g['floaterm_keymap_toggle']='<Leader>tt'
+vim.g['floaterm_wintype']='float'
+vim.g['floaterm_position']="center"
+
+vim.g['floaterm_width']=0.5
+vim.g['floaterm_height']=0.3
+vim.g['floaterm_title']='floaterm: $1/$2'
+

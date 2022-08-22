@@ -16,9 +16,15 @@ return require('packer').startup( {
         use 'theniceboy/vim-leader-mapper'
         use 'prettier/vim-prettier'
         use 'junegunn/vim-peekaboo'
-        use 'vijaymarupudi/nvim-fzf'
-        use 'vim-airline/vim-airline'      
-        use 'vim-airline/vim-airline-themes'
+        use {
+            'nvim-telescope/telescope.nvim', tag = '0.1.0',
+            -- or                            , branch = '0.1.x',
+            requires = { {'nvim-lua/plenary.nvim'} }
+        }
+        use {
+            'nvim-lualine/lualine.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        }
         use 'turbio/bracey.vim'  --[[预览HTML]]
         use 'kien/rainbow_parentheses.vim'
         use 'dag/vim-fish'
@@ -37,7 +43,6 @@ return require('packer').startup( {
             },
             tag = 'nightly' -- optional, updated every week. (see issue #1193)
         }
-
         use 'scrooloose/syntastic' 
         use 'jiangmiao/auto-pairs'
         use 'tenfyzhong/CompleteParameter.vim'
@@ -53,8 +58,8 @@ return require('packer').startup( {
         use 'leafgarland/typescript-vim'
         use 'mattn/emmet-vim'
         use 'morhetz/gruvbox'
-        use 'yuttie/inkstained-vim'
         use 'sainnhe/gruvbox-material'
+        use 'yuttie/inkstained-vim'
         use 'tyrannicaltoucan/vim-quantum'
         use 'mg979/vim-visual-multi'
         use 'Chiel92/vim-autoformat'
@@ -62,11 +67,8 @@ return require('packer').startup( {
         use 'iamcco/coc-spell-checker'
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         use 'nvim-lua/plenary.nvim'
-
-        --[[Java]]
-        use 'mikelue/vim-maven-plugin' --[[Maven]]
-        --[[Kotlin]]
-        use 'udalov/kotlin-vim'        
+        use 'voldikss/vim-floaterm'
+        use 'ycm-core/YouCompleteMe'
 
     end,
     config = {

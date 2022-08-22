@@ -21,11 +21,9 @@ inoreabbrev <expr> __
 \ <SID>isAtStartOfLine('__') ?
 \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
-
-
 autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 
-autocmd VimEnter *  colorscheme default
+autocmd VimEnter *  colorscheme gruvbox-material
 autocmd VimEnter *  RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare

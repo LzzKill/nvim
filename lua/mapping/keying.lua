@@ -14,7 +14,6 @@ map('n', '<F1>', '<nop>', {noremap = true})
 map('n', 'fi', ':PackerInstall<CR>', {noremap = true})
 map('n', 'fs', ':PackerSync<CR>', {noremap = true})
 map('n', 'fS', ':PackerStatus<CR>', {noremap = true})
-map('n', 'ff', ':FZF<CR>', {noremap = true})
 
 map('n', 'U', '<C-r>', {noremap = true})
 map('n', '<F2>', ':Ranger', {noremap = true})
@@ -34,9 +33,10 @@ map('n', '<right>', ':vertical resize -1<CR>', {noremap = true})
 map('n', 'tt', ':NvimTreeToggle<CR>', {noremap = true})
 map('n', 'tr', ':NvimTreeRefresh<CR>', {noremap = true})
 map('n', 'tn', ':TagbarToggle<CR>', {noremap = true})
-
+map('n', 'ff', ':Telescope<CR>', {noremap = true})
 map('n', '<leader>m', '<Plug>MarkdownPreview', {noremap = true})
 map('n', '<leader>o', '<Plug>StopMarkdownPreview', {noremap = true})
-map('n', '<leader>c', ':Autoformat', {noremap = true})
+map('n', '<leader>c', ':Autoformat<CR>', {noremap = true})
 
+map('n', '<leader>=', ':FloatermNext<CR>', {noremap = true})
 
