@@ -4,6 +4,7 @@ require('mapping/keying')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/nvim-tree')
 require('plugin-config/lualine')
+require('plugin-config/coc')
 
 --table-mode--
 vim.g['table_mode_corner']='|'

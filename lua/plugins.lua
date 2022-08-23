@@ -68,7 +68,8 @@ return require('packer').startup( {
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         use 'nvim-lua/plenary.nvim'
         use 'voldikss/vim-floaterm'
-        use 'ycm-core/YouCompleteMe'
+        --use 'ycm-core/YouCompleteMe'
+        use 'honza/vim-snippets'
 
     end,
     config = {

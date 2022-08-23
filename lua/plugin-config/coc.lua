@@ -1,0 +1,1 @@
+vim.g['coc_global_extensions'] = {'coc-clangd', 'coc-prettier', 'coc-html', 'coc-git', 'coc-xml', 'coc-yaml', 'coc-tsserver', 'coc-python', 'coc-lua', 'coc-json', 'coc-css', 'coc-cmake', 'coc-clangd'}
