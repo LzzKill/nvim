@@ -6,6 +6,8 @@ function! s:isAtStartOfLine(mapping)
     return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
 
+
+
 filetype indent on
 filetype on
 filetype plugin on
@@ -23,18 +25,11 @@ inoreabbrev <expr> __
 
 autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 
-autocmd VimEnter *  colorscheme gruvbox-material
 autocmd VimEnter *  RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-let g:tagbar_type_markdown = {
-\ 'ctagstype' : 'markdown',
-\ 'kinds' : [
-\ 'h:Chapter',
-\ 'i:Section',
-\ 'k:Paragraph',
-\ 'j:Subparagraph'
-\ ]
-\ }
+autocmd vimenter * ++nested colorscheme gruvbox-material
+"autocmd VimEnter *  colorscheme gruvbox-material
+"colorscheme gruvbox-material

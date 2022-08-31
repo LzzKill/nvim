@@ -1,11 +1,10 @@
 -- Packer插件管理
 require('plugins')
 require('mapping/keying')
-require('plugin-config/nvim-treesitter')
 require('plugin-config/nvim-tree')
 require('plugin-config/lualine')
 require('plugin-config/coc')
-
+require('plugin-config/symbols-outline')
 --table-mode--
 vim.g['table_mode_corner']='|'
 vim.g['table_mode_border']=0

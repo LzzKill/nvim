@@ -6,7 +6,6 @@
 --
 --]]
 
-
 vim.cmd[[packadd packer.nvim]]
 
 return require('packer').startup( {
@@ -30,7 +29,7 @@ return require('packer').startup( {
         use 'dag/vim-fish'
         use 'godlygeek/tabular'
         use 'plasticboy/vim-markdown'
-        use 'majutsushi/tagbar'
+        use 'simrat39/symbols-outline.nvim'
         use 'suan/vim-instant-markdown'
         use 'iamcco/mathjax-support-for-mkdp'
         use 'iamcco/markdown-preview.vim'
@@ -46,15 +45,15 @@ return require('packer').startup( {
         use 'scrooloose/syntastic' 
         use 'jiangmiao/auto-pairs'
         use 'tenfyzhong/CompleteParameter.vim'
+        --Git
         use 'tpope/vim-fugitive'
+
         use 'francoiscabrol/ranger.vim'
         --[[自动注释代码]]
         --[[coc.nvim--]]
         use 'preservim/nerdcommenter'
         use {'neoclide/coc.nvim', branch = 'release'}
-        use {'tbodt/deoplete-tabnine', run = './install.sh'}
         use 'yggdroot/indentline'  
-        use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
         use 'leafgarland/typescript-vim'
         use 'mattn/emmet-vim'
         use 'morhetz/gruvbox'
@@ -65,15 +64,14 @@ return require('packer').startup( {
         use 'Chiel92/vim-autoformat'
         use 'vhdirk/vim-cmake'
         use 'iamcco/coc-spell-checker'
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         use 'nvim-lua/plenary.nvim'
         use 'voldikss/vim-floaterm'
-        --use 'ycm-core/YouCompleteMe'
         use 'honza/vim-snippets'
-
+        use 'ap/vim-css-color'
+        use 'hotoo/pangu.vim'
     end,
     config = {
-        max_jobs = 16,
+        max_jobs = 20,
         display = {
             open_fn = function()
                 return require('packer.util').float({ border = 'single' })

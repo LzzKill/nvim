@@ -1,7 +1,7 @@
-require('lualine').setup{
+require('lualine').setup({
     options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'gruvbox',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -37,4 +37,4 @@ require('lualine').setup{
     winbar = {},
     inactive_winbar = {},
     extensions = {}
-}
+})

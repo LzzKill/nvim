@@ -74,20 +74,20 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/CompleteParameter.vim",
     url = "https://github.com/tenfyzhong/CompleteParameter.vim"
   },
-  YouCompleteMe = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/YouCompleteMe",
-    url = "https://github.com/ycm-core/YouCompleteMe"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
-  ["coc-spell-check"] = {
+  ["bracey.vim"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/coc-spell-check",
-    url = "https://github.com/iamcco/coc-spell-check"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/bracey.vim",
+    url = "https://github.com/turbio/bracey.vim"
+  },
+  ["coc-spell-checker"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/coc-spell-checker",
+    url = "https://github.com/iamcco/coc-spell-checker"
   },
   ["coc.nvim"] = {
     loaded = true,
@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -129,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/inkstained-vim",
     url = "https://github.com/yuttie/inkstained-vim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["markdown-preview.vim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/markdown-preview.vim",
@@ -144,25 +154,25 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
   },
-  nerdtree = {
+  ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/scrooloose/nerdtree"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
-  ["nvim-fzf"] = {
+  ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-fzf",
-    url = "https://github.com/vijaymarupudi/nvim-fzf"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["pangu.vim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/pangu.vim",
+    url = "https://github.com/hotoo/pangu.vim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -179,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/ranger.vim",
     url = "https://github.com/francoiscabrol/ranger.vim"
   },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
   syntastic = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/syntastic",
@@ -189,25 +204,15 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/tabular",
     url = "https://github.com/godlygeek/tabular"
   },
-  tagbar = {
+  ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/tagbar",
-    url = "https://github.com/majutsushi/tagbar"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["typescript-vim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/typescript-vim",
     url = "https://github.com/leafgarland/typescript-vim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
   },
   ["vim-autoformat"] = {
     loaded = true,
@@ -219,30 +224,55 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-cmake",
     url = "https://github.com/vhdirk/vim-cmake"
   },
+  ["vim-css-color"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-css-color",
+    url = "https://github.com/ap/vim-css-color"
+  },
   ["vim-fish"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-fish",
     url = "https://github.com/dag/vim-fish"
   },
-  ["vim-fugitive"] = {
+  ["vim-floaterm"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-instant-markdown"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
     url = "https://github.com/suan/vim-instant-markdown"
   },
+  ["vim-leader-mapper"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-leader-mapper",
+    url = "https://github.com/theniceboy/vim-leader-mapper"
+  },
   ["vim-markdown"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-markdown",
     url = "https://github.com/plasticboy/vim-markdown"
   },
+  ["vim-peekaboo"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-peekaboo",
+    url = "https://github.com/junegunn/vim-peekaboo"
+  },
+  ["vim-prettier"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-prettier",
+    url = "https://github.com/prettier/vim-prettier"
+  },
   ["vim-quantum"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-quantum",
     url = "https://github.com/tyrannicaltoucan/vim-quantum"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-table-mode"] = {
     loaded = true,
