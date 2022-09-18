@@ -26,10 +26,11 @@ inoreabbrev <expr> __
 autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 
 autocmd VimEnter *  RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
-autocmd vimenter * ++nested colorscheme gruvbox-material
+"autocmd vimenter * ++nested colorscheme gruvbox-material
+colorscheme gruvbox-material
 "autocmd VimEnter *  colorscheme gruvbox-material
 "colorscheme gruvbox-material

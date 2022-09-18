@@ -1,9 +1,10 @@
 require'nvim-tree'.setup {
     -- 关闭文件时自动关闭
-    -- auto_close = false,
+    --auto_close = false,
     -- 显示 git 状态图标
     git = {
-        enable = true
+        enable = true,
+        ignore = false
     },
     renderer = {
         group_empty = false,

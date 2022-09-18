@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/home/fzzkill/Downloads/st_old'
-let g:netrw_dirhist_6='/home/fzzkill/Downloads'
-let g:netrw_dirhist_5='/home/fzzkill/Downloads/st'
-let g:netrw_dirhist_4='/home/fzzkill/Downloads/st/st'
-let g:netrw_dirhist_3='/home/fzzkill/Downloads/st'
-let g:netrw_dirhist_2='/home/fzzkill/Projects/Zhenghuo/xxtg'
-let g:netrw_dirhist_1='/home/fzzkill/.vim'

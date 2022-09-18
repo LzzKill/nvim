@@ -1,4 +1,6 @@
 -- Packer插件管理
+require('plugin-config/plugins')
+require('plugin-config/bufferline')
 require('plugins')
 require('mapping/keying')
 require('plugin-config/nvim-tree')
@@ -10,6 +12,9 @@ vim.g['table_mode_corner']='|'
 vim.g['table_mode_border']=0
 vim.g['table_mode_fillchar']='='
 
+--Prettier--
+vim.g['prettier#config#trailing_comma'] = 'all'
+vim.g['prettier#config#single_quote'] = true
 
 --MarkDown--
 vim.g['mkdp_browser']='firefox'

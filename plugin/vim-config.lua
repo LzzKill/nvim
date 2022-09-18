@@ -1,4 +1,3 @@
-
 vim.o.background = 'light'
 
 vim.opt.conceallevel=2
