@@ -1,5 +1,3 @@
-vim.o.background = 'light'
-
 vim.opt.conceallevel=2
 vim.opt.encoding='utf-8'
 vim.opt.expandtab=true

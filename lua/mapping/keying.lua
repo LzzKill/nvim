@@ -1,6 +1,9 @@
 local map = vim.api.nvim_set_keymap
+require('mapping/Nope')
 vim.g['mapleader']=" "
 local opt_n = {noremap = true}
+local opt_i = {noremap = false}
+
 map('n', '<leader>w', ':w<CR>', opt_n)
 
 map('n', '<leader>p', ':Prettier<CR>', opt_n)
@@ -14,6 +17,7 @@ map('n', 'S', '<nop>', opt_n)
 map('n', 'm', '<nop>', opt_n)
 map('n', '<F2>', '<nop>', opt_n)
 map('n', '<F1>', '<nop>', opt_n)
+map('n', '<F1>', '<nop>', opt_i)
 
 map('n', '<leader>fi', ':PackerInstall<CR>', opt_n)
 map('n', '<leader>fs', ':PackerSync<CR>', opt_n)
@@ -21,6 +25,7 @@ map('n', '<leader>fS', ':PackerStatus<CR>', opt_n)
 
 map('n', 'U', '<C-r>', opt_n)
 map('n', '<F2>', ':RnvimrToggle<CR>', opt_n)
+map('n', '<F2>', ':RnvimrToggle<CR>', opt_i)
 map('n', ';', ':', opt_n)
 
 map('n', 'mv', ':+tabnext<CR>', opt_n)
@@ -45,5 +50,5 @@ map('n', '<leader>c', ':Autoformat<CR>', opt_n)
 
 map('n', '<leader>=', ':FloatermNext<CR>', opt_n)
 
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt_n)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt_n)
+map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt_i)
+map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt_i)
