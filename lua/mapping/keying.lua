@@ -1,5 +1,4 @@
 local map = vim.api.nvim_set_keymap
-require('mapping/Nope')
 vim.g['mapleader']=" "
 local opt_n = {noremap = true}
 local opt_i = {noremap = false}

@@ -11,11 +11,10 @@ require('cfg')
 vim.g['coc_global_extensions'] = {'coc-prettier', 'coc-git', 'coc-xml', 'coc-yaml', 'coc-json', 'coc-lua'}
 --Coc.nvim
 --
-vim.o.background = 'light'
+--vim.o.background = 'light'
 
 vim.cmd[[
-colorscheme gruvbox-material
-"Table Mode"
+colorscheme onedark
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
     let mapping_pattern = '\V' . escape(a:mapping, '\')
@@ -29,7 +28,6 @@ filetype plugin on
 filetype indent on
 syntax on
 
-colorscheme gruvbox-material
 au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 inoreabbrev <expr> <bar><bar>
 \ <SID>isAtStartOfLine('\|\|') ?
