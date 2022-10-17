@@ -1,8 +1,6 @@
 vim.opt.termguicolors = false
 require("bufferline").setup {
     options = {
-        -- 使用 nvim 内置lsp
-        diagnostics = "coc",
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
             if context.buffer:current() then
                 return ""

@@ -5,16 +5,14 @@ require('mapping/keying')
 require('plugin-config/nvim-tree')
 require('plugin-config/lualine')
 require('plugin-config/symbols-outline')
+require('LSP')
 require('cfg')
 
---Coc.nvim
-vim.g['coc_global_extensions'] = {'coc-prettier', 'coc-git', 'coc-xml', 'coc-yaml', 'coc-json', 'coc-lua'}
---Coc.nvim
---
 --vim.o.background = 'light'
 
 vim.cmd[[
 colorscheme onedark
+
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
     let mapping_pattern = '\V' . escape(a:mapping, '\')
@@ -35,13 +33,10 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
 \ <SID>isAtStartOfLine('__') ?
 \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
-autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
+set fillchars=eob:\ ,vert:\ 
+autocmd FileType markdown nnoremap <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 
 autocmd VimEnter *  RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
 
 "autocmd vimenter * ++nested colorscheme gruvbox-material
 ]]

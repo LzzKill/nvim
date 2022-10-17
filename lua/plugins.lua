@@ -5,20 +5,18 @@
 --    packer.nvim
 --
 --]]
-vim.cmd [[packadd packer.nvim]]
-
 return require("packer").startup(
     {
         function()
             --[[nvim ui--]]
             --文件管理器
             use "kevinhwang91/rnvimr" --Ranger
+            -- 文件管理插件，类似与ranger。
             use {
                 "kyazdani42/nvim-tree.lua", --文件树
                 requires = {
                     "kyazdani42/nvim-web-devicons" -- optional, for file icons
-                },
-                tag = "nightly" -- optional, updated every week. (see issue #1193)
+                }
             }
             use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} --顶部的Buffer
             use {
@@ -26,8 +24,9 @@ return require("packer").startup(
                 "nvim-lualine/lualine.nvim",
                 requires = {"kyazdani42/nvim-web-devicons", opt = true}
             }
+            --
             -- Markdown
-
+            use "hotoo/pangu.vim"
             -- install without yarn or npm
             use(
                 {
@@ -42,10 +41,7 @@ return require("packer").startup(
 
             use "wbthomason/packer.nvim" --[[ a good plug chooser, it should know choose itself --]]
 
-            use "liuchengxu/vista.vim" -- 基于lsp的tag查看器
-
             --格式化插件
-            use "prettier/vim-prettier" --Prettier
             use "Chiel92/vim-autoformat"
             use "preservim/nerdcommenter" --自动注释代码
 
@@ -54,8 +50,7 @@ return require("packer").startup(
             use {
                 "nvim-telescope/telescope.nvim",
                 tag = "0.1.0",
-                -- or                            , branch = '0.1.x',
-                requires = {{"nvim-lua/plenary.nvim"}}
+                requires = {{"nvim-lua/plenary.nvim"}, {"nvim-lua/plenary.nvim"}, {"kdheepak/lazygit.nvim"}}
             }
 
             use "turbio/bracey.vim" --[[预览HTML]]
@@ -69,7 +64,6 @@ return require("packer").startup(
 
             use "jiangmiao/auto-pairs"
             use "tenfyzhong/CompleteParameter.vim"
-            use "tpope/vim-fugitive" --Git
             --[[自动注释代码]]
             use "yggdroot/indentline"
             use "mattn/emmet-vim"
@@ -78,14 +72,11 @@ return require("packer").startup(
             use "tyrannicaltoucan/vim-quantum"
             use "mg979/vim-visual-multi"
             use "vhdirk/vim-cmake"
-            use "iamcco/coc-spell-checker"
             use "nvim-lua/plenary.nvim"
             use "voldikss/vim-floaterm"
             use "honza/vim-snippets"
             use "ap/vim-css-color" --CSS颜色
-            use "hotoo/pangu.vim"
 
-            use {"neoclide/coc.nvim", branch = "release"} -- coc.nvim
             use "leafgarland/typescript-vim" --TypeScript Language
             use {
                 "glacambre/firenvim",
@@ -93,6 +84,42 @@ return require("packer").startup(
                     vim.fn["firenvim#install"](0)
                 end
             }
+
+            -- LSP Server
+            use {
+                "williamboman/mason.nvim",
+                "williamboman/mason-lspconfig.nvim",
+                "neovim/nvim-lspconfig"
+            }
+            -- nvim-cmp
+            use {
+                "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
+                "hrsh7th/cmp-buffer", -- { name = 'buffer' },
+                "hrsh7th/cmp-path", -- { name = 'path' }
+                "hrsh7th/nvim-cmp"
+            }
+            -- vsnip
+            use "hrsh7th/cmp-vsnip" -- { name = 'vsnip' }
+            use "hrsh7th/vim-vsnip"
+            use "rafamadriz/friendly-snippets"
+            -- lspkind
+            use "onsails/lspkind-nvim"
+            use "liuchengxu/vista.vim" -- 基于lsp的tag查看器
+            use "folke/lsp-colors.nvim"
+            use(
+                {
+                    "glepnir/lspsaga.nvim",
+                    branch = "main",
+                    config = function()
+                        local saga = require("lspsaga")
+
+                        saga.init_lsp_saga({})
+                    end
+                }
+            )
+
+            -- Debug
+            use "mfussenegger/nvim-dap"
         end,
         config = {
             max_jobs = 25,
