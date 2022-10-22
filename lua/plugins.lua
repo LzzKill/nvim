@@ -18,7 +18,7 @@ return require("packer").startup(
                 "kyazdani42/nvim-web-devicons",
                 "s1n7ax/nvim-window-picker",
                 "MunifTanjim/nui.nvim",
-                'goolord/alpha-nvim',
+                "goolord/alpha-nvim"
             }
             use "hotoo/pangu.vim" --Markdown
             use {
@@ -51,8 +51,8 @@ return require("packer").startup(
             use "folke/trouble.nvim"
             use {
                 --color
-                'Mofiqul/dracula.nvim',
-                'folke/tokyonight.nvim',
+                "Mofiqul/dracula.nvim",
+                "folke/tokyonight.nvim",
                 --"sainnhe/everforest",
                 "ful1e5/onedark.nvim"
             }
@@ -66,9 +66,7 @@ return require("packer").startup(
             use "vhdirk/vim-cmake"
             use "nvim-lua/plenary.nvim"
             use "voldikss/vim-floaterm"
-            use "honza/vim-snippets"
             use "ap/vim-css-color" --CSS颜色
-            use "leafgarland/typescript-vim" --TypeScript Language
             use {
                 "glacambre/firenvim",
                 run = function()
@@ -78,6 +76,7 @@ return require("packer").startup(
             -- LSP
             use "SmiteshP/nvim-navic"
             use "ray-x/lsp_signature.nvim"
+            use "onsails/lspkind.nvim"
             use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- 代码高亮
             use {
                 "williamboman/mason.nvim",
@@ -86,16 +85,17 @@ return require("packer").startup(
             }
             use {
                 -- nvim-cmp
-                "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
-                "hrsh7th/cmp-buffer", -- { name = 'buffer' },
-                "hrsh7th/cmp-path", -- { name = 'path' }
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-path",
                 "hrsh7th/cmp-cmdline",
                 "hrsh7th/nvim-cmp",
-                "hrsh7th/cmp-vsnip" -- { name = 'vsnip' }
+                "L3MON4D3/LuaSnip",
+                "saadparwaiz1/cmp_luasnip",
+
             }
-            use "rafamadriz/friendly-snippets"
             use "onsails/lspkind-nvim"
-            use "liuchengxu/vista.vim" -- 基于lsp的tag查看器
+            use "liuchengxu/vista.vim"
             use "folke/lsp-colors.nvim"
             use {
                 "glepnir/lspsaga.nvim",
