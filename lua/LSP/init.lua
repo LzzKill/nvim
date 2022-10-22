@@ -108,23 +108,4 @@ cmp.setup.cmdline(
     )
 }
 )
-cmp.confirm =  function(option)
-    option = option or {}
-    local e = core.menu:get_selected_entry() or (option.select and core.menu:get_first_entry() or nil)
-    if e then
-        core.confirm(e, {
-            behavior = option.behavior,
-        }, function()
-            local myContext  =  core.get_context({ reason = cmp.ContextReason.TriggerOnly })
-            core.complete(myContext)
-            if e and e.resolved_completion_item and (e.resolved_completion_item.kind==3 or e.resolved_completion_item.kind==2) then
-                vim.api.nvim_feedkeys(keymap.t('()<Left>'), 'n', true)
-            end
-        end)
-        return true
-    else
-        return false
-    end
-end
-
 require("LSP/Server")
