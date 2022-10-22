@@ -1,3 +1,4 @@
+vim.cmd"colorscheme tokyonight-day"
 require('init')
 require("plugins")
 require("map")
@@ -13,4 +14,4 @@ require("plugin-config/neotree")
 require("plugin-config/nvim-headband")
 require("plugin-config/tokyonight")
 require("plugin-config/alpha")
-vim.cmd"colorscheme tokyonight-day"
+vim.cmd"autocmd VimEnter * Neotree"

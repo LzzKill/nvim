@@ -44,7 +44,6 @@ return require("packer").startup(
                 "kdheepak/lazygit.nvim"
             }
             use "turbio/bracey.vim" --[[预览HTML]]
-            use "kien/rainbow_parentheses.vim"
             use "dag/vim-fish" --Fish
             use "godlygeek/tabular"
             use "simrat39/symbols-outline.nvim"

@@ -22,10 +22,6 @@ require "lspconfig".cssls.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities() --css
 capabilities.textDocument.completion.completionItem.snippetSupport = true --css
 require "lspconfig".pylsp.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end,
-    --Python
     settings = {
         pylsp = {
             plugins = {

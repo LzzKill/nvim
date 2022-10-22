@@ -1,6 +1,7 @@
 vim.g["table_mode_corner"] = "|"
 vim.g["table_mode_border"] = 0
 vim.g["table_mode_fillchar"] = "="
+vim.g["indentLine_char_list"] = {'|', '¦', '┆', '┊'}
 vim.cmd[[
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
