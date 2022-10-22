@@ -1,25 +1,17 @@
-vim.api.nvim_create_user_command(
-    "LoaderLSP",
-    [[lua require("mason").setup(
-        {
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗"
-                }
+require("mason").setup(
+    {
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
             }
         }
-    )]],
-    {}
+    }
 )
 
-require("LSP/lspServer")
-
 -- cmp
-
 local cmp = require "cmp"
-
 cmp.setup(
     {
         snippet = {
@@ -34,11 +26,11 @@ cmp.setup(
         window = {},
         mapping = cmp.mapping.preset.insert(
             {
-                ["<C-DOWN>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-UP>"] = cmp.mapping.scroll_docs(4),
+                ["<A-j>"] = cmp.mapping.scroll_docs(-4),
+                ["<A-k>"] = cmp.mapping.scroll_docs(4),
                 ["<S-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<C-N>"] = cmp.mapping.confirm({select = true}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ["<A-e>"] = cmp.mapping.abort(),
+                ["<A-n>"] = cmp.mapping.confirm({select = true}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
             }
         ),
         sources = cmp.config.sources(
@@ -82,3 +74,20 @@ cmp.setup.cmdline(
     }
 )
 
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(
+    ":",
+    {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources(
+            {
+                {name = "path"}
+            },
+            {
+                {name = "cmdline"}
+            }
+        )
+    }
+)
+-- Loader LSP Server
+require("LSP/Server")

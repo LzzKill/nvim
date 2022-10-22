@@ -5,54 +5,44 @@
 --    packer.nvim
 --
 --]]
+vim.cmd [[packadd packer.nvim]]
 return require("packer").startup(
     {
         function()
-            --[[nvim ui--]]
-            --文件管理器
-            use "kevinhwang91/rnvimr" --Ranger
-            -- 文件管理插件，类似与ranger。
+            -- UI
             use {
-                "kyazdani42/nvim-tree.lua", --文件树
-                requires = {
-                    "kyazdani42/nvim-web-devicons" -- optional, for file icons
-                }
-            }
-            use {"akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons"} --顶部的Buffer
-            use {
-                --底部的Line
+                "nvim-neo-tree/neo-tree.nvim",
+                "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim",
-                requires = {"kyazdani42/nvim-web-devicons", opt = true}
+                "B4mbus/nvim-headband",
+                "kyazdani42/nvim-web-devicons",
+                "s1n7ax/nvim-window-picker",
+                "MunifTanjim/nui.nvim",
+                'goolord/alpha-nvim',
             }
-            --
-            -- Markdown
-            use "hotoo/pangu.vim"
-            -- install without yarn or npm
-            use(
-                {
-                    "iamcco/markdown-preview.nvim",
-                    run = function()
-                        vim.fn["mkdp#util#install"]()
-                    end
-                }
-            )
-
+            use "hotoo/pangu.vim" --Markdown
+            use {
+                "iamcco/markdown-preview.nvim",
+                run = function()
+                    vim.fn["mkdp#util#install"]()
+                end
+            }
             use "md-img-paste-devs/md-img-paste.vim"
-
-            use "wbthomason/packer.nvim" --[[ a good plug chooser, it should know choose itself --]]
-
-            --格式化插件
+            use "wbthomason/packer.nvim"
             use "Chiel92/vim-autoformat"
             use "preservim/nerdcommenter" --自动注释代码
-
             use "theniceboy/vim-leader-mapper"
             use "junegunn/vim-peekaboo"
             use {
                 "nvim-telescope/telescope.nvim",
                 tag = "0.1.0",
-                requires = {{"nvim-lua/plenary.nvim"}, {"nvim-lua/plenary.nvim"}, {"kdheepak/lazygit.nvim"}}
+                requires = {{"nvim-lua/plenary.nvim"}}
             }
-
+            use {
+                --git
+                "lewis6991/gitsigns.nvim",
+                "kdheepak/lazygit.nvim"
+            }
             use "turbio/bracey.vim" --[[预览HTML]]
             use "kien/rainbow_parentheses.vim"
             use "dag/vim-fish" --Fish
@@ -60,14 +50,18 @@ return require("packer").startup(
             use "simrat39/symbols-outline.nvim"
             use "iamcco/mathjax-support-for-mkdp"
             use "dhruvasagar/vim-table-mode"
-            use "ful1e5/onedark.nvim" --OneDark YYDS!!!
-
+            use "folke/trouble.nvim"
+            use {
+                --color
+                'Mofiqul/dracula.nvim',
+                'folke/tokyonight.nvim',
+                --"sainnhe/everforest",
+                "ful1e5/onedark.nvim"
+            }
             use "jiangmiao/auto-pairs"
             use "tenfyzhong/CompleteParameter.vim"
-            --[[自动注释代码]]
             use "yggdroot/indentline"
             use "mattn/emmet-vim"
-            --use "sainnhe/gruvbox-material"
             use "yuttie/inkstained-vim"
             use "tyrannicaltoucan/vim-quantum"
             use "mg979/vim-visual-multi"
@@ -76,7 +70,6 @@ return require("packer").startup(
             use "voldikss/vim-floaterm"
             use "honza/vim-snippets"
             use "ap/vim-css-color" --CSS颜色
-
             use "leafgarland/typescript-vim" --TypeScript Language
             use {
                 "glacambre/firenvim",
@@ -84,42 +77,36 @@ return require("packer").startup(
                     vim.fn["firenvim#install"](0)
                 end
             }
-
-            -- LSP Server
+            -- LSP
+            use "SmiteshP/nvim-navic"
+            use "ray-x/lsp_signature.nvim"
+            use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- 代码高亮
             use {
                 "williamboman/mason.nvim",
                 "williamboman/mason-lspconfig.nvim",
                 "neovim/nvim-lspconfig"
             }
-            -- nvim-cmp
             use {
+                -- nvim-cmp
                 "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
                 "hrsh7th/cmp-buffer", -- { name = 'buffer' },
                 "hrsh7th/cmp-path", -- { name = 'path' }
-                "hrsh7th/nvim-cmp"
+                "hrsh7th/cmp-cmdline",
+                "hrsh7th/nvim-cmp",
+                "hrsh7th/cmp-vsnip" -- { name = 'vsnip' }
             }
-            -- vsnip
-            use "hrsh7th/cmp-vsnip" -- { name = 'vsnip' }
-            use "hrsh7th/vim-vsnip"
             use "rafamadriz/friendly-snippets"
-            -- lspkind
             use "onsails/lspkind-nvim"
             use "liuchengxu/vista.vim" -- 基于lsp的tag查看器
             use "folke/lsp-colors.nvim"
-            use(
-                {
-                    "glepnir/lspsaga.nvim",
-                    branch = "main",
-                    config = function()
-                        local saga = require("lspsaga")
-
-                        saga.init_lsp_saga({})
-                    end
-                }
-            )
-
-            -- Debug
-            use "mfussenegger/nvim-dap"
+            use {
+                "glepnir/lspsaga.nvim",
+                branch = "main",
+                config = function()
+                    local saga = require("lspsaga")
+                end
+            }
+            use "mfussenegger/nvim-dap" -- Debug
         end,
         config = {
             max_jobs = 25,
