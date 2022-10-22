@@ -46,7 +46,6 @@ return require("packer").startup(
             use "turbio/bracey.vim" --[[预览HTML]]
             use "dag/vim-fish" --Fish
             use "godlygeek/tabular"
-            use "simrat39/symbols-outline.nvim"
             use "iamcco/mathjax-support-for-mkdp"
             use "dhruvasagar/vim-table-mode"
             use "folke/trouble.nvim"

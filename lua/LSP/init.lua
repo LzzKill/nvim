@@ -91,3 +91,30 @@ cmp.setup.cmdline(
 )
 -- Loader LSP Server
 require("LSP/Server")
+
+
+--重写插件方法,为了实现function 后,自动追加()
+local core = require('cmp.core')
+local keymap = require('cmp.utils.keymap')
+--local cmp_confirm = cmp.confirm
+cmp.confirm =  function(option)
+	option = option or {}
+	local e = core.menu:get_selected_entry() or (option.select and core.menu:get_first_entry() or nil)
+	if e then
+		core.confirm(e, {
+			behavior = option.behavior,
+		}, function()
+			local myContext  =	core.get_context({ reason = cmp.ContextReason.TriggerOnly })
+			core.complete(myContext)
+			--function() 自动增加()
+			if e and e.resolved_completion_item and (e.resolved_completion_item.kind==3 or e.resolved_completion_item.kind==2) then
+				vim.api.nvim_feedkeys(keymap.t('()<Left>'), 'n', true)
+			end
+		end)
+		return true
+	else
+		return false
+	end
+end
+
+
