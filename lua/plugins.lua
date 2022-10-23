@@ -11,6 +11,7 @@ return require("packer").startup(
         function()
             -- UI
             use {
+                "lukas-reineke/indent-blankline.nvim", -- 拒绝游标卡尺，从我做起
                 "nvim-neo-tree/neo-tree.nvim",
                 "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim",
@@ -58,7 +59,6 @@ return require("packer").startup(
             }
             use "jiangmiao/auto-pairs"
             use "tenfyzhong/CompleteParameter.vim"
-            use "yggdroot/indentline"
             use "mattn/emmet-vim"
             use "yuttie/inkstained-vim"
             use "tyrannicaltoucan/vim-quantum"
