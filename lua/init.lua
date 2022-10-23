@@ -1,33 +1,14 @@
-require('plugin-config/plugins')
-require('plugin-config/bufferline')
-require('plugins')
-require('mapping/keying')
-require('plugin-config/nvim-tree')
-require('plugin-config/lualine')
-require('plugin-config/symbols-outline')
-require('cfg')
-
---Coc.nvim
-vim.g['coc_global_extensions'] = {'coc-prettier', 'coc-git', 'coc-xml', 'coc-yaml', 'coc-json', 'coc-lua'}
---Coc.nvim
---
---vim.o.background = 'light'
-
+vim.g["table_mode_corner"] = "|"
+vim.g["table_mode_border"] = 0
+vim.g["table_mode_fillchar"] = "="
+vim.g["indentLine_char_list"] = {'|', '¦', '┆', '┊'}
 vim.cmd[[
-colorscheme onedark
 function! s:isAtStartOfLine(mapping)
     let text_before_cursor = getline('.')[0 : col('.')-1]
     let mapping_pattern = '\V' . escape(a:mapping, '\')
     let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
     return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
 endfunction
-
-filetype indent on
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
-
 au Filetype FILETYPE let b:AutoPairs = {"(": ")"}
 inoreabbrev <expr> <bar><bar>
 \ <SID>isAtStartOfLine('\|\|') ?
@@ -35,13 +16,6 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
 \ <SID>isAtStartOfLine('__') ?
 \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
-autocmd FileType markdown nnoremap <silent> <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
-
-autocmd VimEnter *  RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-"autocmd vimenter * ++nested colorscheme gruvbox-material
+set fillchars=eob:\ ,vert:\ 
+autocmd FileType markdown nnoremap <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 ]]
