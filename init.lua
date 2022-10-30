@@ -13,6 +13,7 @@ require("plugin-config/nvim-headband")
 require("plugin-config/tokyonight")
 require("plugin-config/alpha")
 require("plugin-config/nvim-cmp")
+require("plugin-config/gitsigns")
 
 vim.cmd"colorscheme tokyonight"
 
