@@ -44,7 +44,7 @@ require("lsp_signature").setup()
 require('gitsigns').setup()
 -- Loader PluginConfig
 
---require("plugin-config.LineBuffer")
+require("plugin-config.LineBuffer")
 require("plugin-config.nvim-treesitter")
 require("plugin-config.tokyonight")
 require("plugin-config.trouble")
