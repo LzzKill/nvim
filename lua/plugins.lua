@@ -56,7 +56,7 @@ return require("packer").startup(
 		use "tyrannicaltoucan/vim-quantum"
 		use "mg979/vim-visual-multi"
 		use "nvim-lua/plenary.nvim"
-
+        use "luzhlon/xmake.vim" -- XMake
 		use "folke/trouble.nvim" -- LSP Error
 		use {"glacambre/firenvim", run = function()
 			vim.fn["firenvim#install"](0)

@@ -42,6 +42,6 @@ map("n", "<leader>f<leader>", ":Autoformat<CR>", opt_n)
 map("n", "<leader>=", ":FloatermNext<CR>", opt_n)
 map("n", "tt", ":Neotree<CR>", opt_n)
 
-map("n", "<C-I>h", ":BufferLineCyclePrev<CR>", opt_n)
-map("n", "<C-I>l", ":BufferLineCycleNext<CR>", opt_n)
+map("n", "<A-L>", ":BufferLineCyclePrev<CR>", opt_n)
+map("n", "<A-H>", ":BufferLineCycleNext<CR>", opt_n)
 
