@@ -45,6 +45,7 @@ require('gitsigns').setup()
 -- Loader PluginConfig
 
 require("plugin-config.LineBuffer")
+require("plugin-config.neotree")
 require("plugin-config.nvim-treesitter")
 require("plugin-config.tokyonight")
 require("plugin-config.trouble")
