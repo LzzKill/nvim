@@ -9,6 +9,5 @@ require("mason").setup(
     }
 }
 )
-require("nvimcmp") --nvim-cmp
 require("lspsaga")
-require("LSP/Server")
+require("LSP.Server")

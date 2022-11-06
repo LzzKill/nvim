@@ -17,7 +17,7 @@ vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
 require("neo-tree").setup({
-    close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+    close_if_last_window = true,
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
@@ -162,8 +162,8 @@ require("neo-tree").setup({
                 ["D"] = "fuzzy_finder_directory",
                 ["f"] = "filter_on_submit",
                 ["<c-x>"] = "clear_filter",
-                ["[g"] = "prev_git_modified",
-                ["]g"] = "next_git_modified"
+                ["g["] = "prev_git_modified",
+                ["g]"] = "next_git_modified"
             }
         }
     },

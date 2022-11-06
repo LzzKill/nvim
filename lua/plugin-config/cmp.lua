@@ -60,8 +60,7 @@ cmp.setup(
                         emoji = "(Emoji)",
                         path = "(Path)",
                         calc = "(Calc)",
-                        luasnip = "(Snippet)",
-                        luasnip = "(Snippet)",
+                        luasnip = "(Snip)",
                         buffer = "(Buffer)",
                         spell = "(Spell)"
                     },
