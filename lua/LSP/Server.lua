@@ -44,9 +44,13 @@ require("lspconfig").html.setup {
     end,
     capabilities = capabilities
 }
-
-require("lspconfig").tsserver.setup {
+require'lspconfig'.sumneko_lua.setup {
     on_attach = function(client, bufnr)
         require "lsp_signature".on_attach(signature_setup, bufnr)
-    end
-} --TypeScript
+    end,
+}
+--[[require("lspconfig").tsserver.setup {]]
+    --[[on_attach = function(client, bufnr)]]
+        --[[require "lsp_signature".on_attach(signature_setup, bufnr)]]
+    --[[end]]
+--[[}]]

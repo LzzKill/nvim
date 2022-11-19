@@ -129,16 +129,6 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["dracula.nvim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/dracula.nvim",
-    url = "https://github.com/Mofiqul/dracula.nvim"
-  },
-  ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/emmet-vim",
-    url = "https://github.com/mattn/emmet-vim"
-  },
   firenvim = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/firenvim",
@@ -164,20 +154,10 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
-  ["lsp-colors.nvim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
-    url = "https://github.com/folke/lsp-colors.nvim"
-  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
-    url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -185,7 +165,6 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\2K\0\1\0\flspsaga\frequire\0" },
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
@@ -245,25 +224,30 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
   },
-  ["nvim-headband"] = {
+  ["nvim-dap-ui"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-headband",
-    url = "https://github.com/B4mbus/nvim-headband"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-navic"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-navic",
-    url = "https://github.com/SmiteshP/nvim-navic"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -275,20 +259,10 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/nvim-window-picker",
     url = "https://github.com/s1n7ax/nvim-window-picker"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/ful1e5/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["pangu.vim"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/pangu.vim",
-    url = "https://github.com/hotoo/pangu.vim"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -320,11 +294,6 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-autoformat",
     url = "https://github.com/Chiel92/vim-autoformat"
   },
-  ["vim-cmake"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-cmake",
-    url = "https://github.com/vhdirk/vim-cmake"
-  },
   ["vim-css-color"] = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-css-color",
@@ -334,16 +303,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-fish",
     url = "https://github.com/dag/vim-fish"
-  },
-  ["vim-floaterm"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-floaterm",
-    url = "https://github.com/voldikss/vim-floaterm"
-  },
-  ["vim-leader-mapper"] = {
-    loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-leader-mapper",
-    url = "https://github.com/theniceboy/vim-leader-mapper"
   },
   ["vim-peekaboo"] = {
     loaded = true,
@@ -365,18 +324,14 @@ _G.packer_plugins = {
     path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
     url = "https://github.com/mg979/vim-visual-multi"
   },
-  ["vista.vim"] = {
+  ["xmake.vim"] = {
     loaded = true,
-    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/vista.vim",
-    url = "https://github.com/liuchengxu/vista.vim"
+    path = "/home/fzzkill/.local/share/nvim/site/pack/packer/start/xmake.vim",
+    url = "https://github.com/luzhlon/xmake.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\2K\0\1\0\flspsaga\frequire\0", "config", "lspsaga.nvim")
-time([[Config for lspsaga.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

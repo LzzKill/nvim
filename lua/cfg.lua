@@ -44,3 +44,12 @@ inoreabbrev <expr> __
 set fillchars=eob:\ ,vert:\ 
 autocmd FileType markdown nnoremap <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
 ]]
+
+-- if neoclide
+vim.cmd[[
+if exists("g:neovide")
+    let neovide_cursor_vfx_mode = "railgun"
+    let neovide_scale_factor = 0.8
+    let neovide_transparency = 0.8
+endif
+]]
