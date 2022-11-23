@@ -5,7 +5,7 @@ if not path_ok then
     return
 end
 
-local dashboard = require("alpha.themes.dashboard")
+local dashboard = require("plugins.StartX.themes.dashboard")
 local cdir = vim.fn.getcwd()
 local if_nil = vim.F.if_nil
 
@@ -190,7 +190,7 @@ local config = {
         setup = function()
             vim.api.nvim_create_autocmd('DirChanged', {
                 pattern = '*',
-                callback = function () require('alpha').redraw() end,
+                callback = function () require('plugins.StartX').redraw() end,
             })
         end,
     },

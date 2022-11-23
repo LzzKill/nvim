@@ -26,7 +26,7 @@ map("n", "mc", ":-tabnext<CR>", opt_n)
 
 map("n", "cm", "<C-w>t<C-w>H", opt_n)
 map("n", "cc", "<C-w>t<C-w>K", opt_n)
-map("n", "e", "<C-w>w", opt_n)
+map("n", "E", "<C-w>w", opt_n)
 map("n", "<up>", ":res +1<CR>", opt_n)
 map("n", "<down>", ":res -1<CR>", opt_n)
 map("n", "<left>", ":vertical resize +1<CR>", opt_n)

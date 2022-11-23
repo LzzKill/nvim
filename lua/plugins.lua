@@ -34,8 +34,7 @@ return require("packer").startup(
                     vim.fn["mkdp#util#install"]()
                 end
             }
-            --use "Chiel92/vim-autoformat"
-            use "mhartington/formatter.nvim"
+            use "Chiel92/vim-autoformat"
             use "preservim/nerdcommenter"
             use "junegunn/vim-peekaboo"
             use {

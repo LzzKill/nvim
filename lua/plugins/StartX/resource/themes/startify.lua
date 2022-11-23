@@ -158,7 +158,7 @@ local config = {
         setup = function()
             vim.api.nvim_create_autocmd('DirChanged', {
                 pattern = '*',
-                callback = function () require('alpha').redraw() end,
+                callback = function () require('plugins.StartX').redraw() end,
             })
         end,
     },

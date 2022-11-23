@@ -1,4 +1,3 @@
-local lspkind = require("lspkind")
 local cmp = require("cmp")
 local source_names = {
     nvim_lsp = "(LSP)",
@@ -7,7 +6,7 @@ local source_names = {
     path = "(Path)",
     calc = "(Calc)",
     luasnip = "(Snip)",
-    buffer = "(Buffer)",
+    buffer = "(Buf)",
     spell = "(Spell)"
 }
 local source_icons = {
