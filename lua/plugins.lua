@@ -9,10 +9,9 @@ vim.cmd [[packadd packer.nvim]]
 return require("packer").startup(
     {
         function(use)
-            -- UI
             use "wbthomason/packer.nvim" -- Packer
 
-            use {
+            use { --UI
                 "kyazdani42/nvim-web-devicons",
                 "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim"
@@ -20,6 +19,7 @@ return require("packer").startup(
             use {
                 "ap/vim-css-color", -- CSS Color
                 "folke/tokyonight.nvim", -- Color
+                "yuttie/inkstained-vim",
                 "lukas-reineke/indent-blankline.nvim",
                 "nvim-neo-tree/neo-tree.nvim",
                 "s1n7ax/nvim-window-picker",
@@ -48,14 +48,11 @@ return require("packer").startup(
             }
             use "turbio/bracey.vim" --[[预览HTML]]
             use "dag/vim-fish" --Fish
-            use "godlygeek/tabular"
             use "dhruvasagar/vim-table-mode"
             use "jiangmiao/auto-pairs"
             use "tenfyzhong/CompleteParameter.vim"
-            use "yuttie/inkstained-vim"
-            use "tyrannicaltoucan/vim-quantum"
             use "mg979/vim-visual-multi"
-            use "nvim-lua/plenary.nvim"
+            --use "nvim-lua/plenary.nvim"
             use {
                 "glacambre/firenvim",
                 run = function()

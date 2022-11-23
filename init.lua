@@ -4,5 +4,5 @@ require("plugins")
 require("map")
 require("LSP")
 require("cfg")
-vim.cmd"colorscheme tokyonight"
+vim.cmd"colorscheme inkstained"
 
