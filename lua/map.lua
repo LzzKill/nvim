@@ -26,7 +26,7 @@ map("n", "mc", ":-tabnext<CR>", opt_n)
 
 map("n", "cm", "<C-w>t<C-w>H", opt_n)
 map("n", "cc", "<C-w>t<C-w>K", opt_n)
-map("n", "e", "<C-w>w", opt_n)
+map("n", "E", "<C-w>w", opt_n)
 map("n", "<up>", ":res +1<CR>", opt_n)
 map("n", "<down>", ":res -1<CR>", opt_n)
 map("n", "<left>", ":vertical resize +1<CR>", opt_n)
@@ -42,6 +42,6 @@ map("n", "<leader>f<leader>", ":Autoformat<CR>", opt_n)
 map("n", "<leader>=", ":FloatermNext<CR>", opt_n)
 map("n", "tt", ":Neotree<CR>", opt_n)
 
-map("n", "<C-I>h", ":BufferLineCyclePrev<CR>", opt_n)
-map("n", "<C-I>l", ":BufferLineCycleNext<CR>", opt_n)
+map("n", "<A-L>", ":BufferLineCyclePrev<CR>", opt_n)
+map("n", "<A-H>", ":BufferLineCycleNext<CR>", opt_n)
 

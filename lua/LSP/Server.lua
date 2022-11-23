@@ -1,27 +1,20 @@
---LSP
-local navic = require("nvim-navic")
+local capabilities = vim.lsp.protocol.make_client_capabilities() --css
+capabilities.textDocument.completion.completionItem.snippetSupport = true --css
 
-require "lspconfig".clangd.setup {
+-- Local LSP
+require("lspconfig").clangd.setup {
     on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end,
+        require "lsp_signature".on_attach(signature_setup, bufnr)
+    end
 }
 
-require "lspconfig".luau_lsp.setup {
+require("lspconfig").cssls.setup {
     on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
-} --lua
-
-require "lspconfig".cssls.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
     end
 } --css
 
-local capabilities = vim.lsp.protocol.make_client_capabilities() --css
-capabilities.textDocument.completion.completionItem.snippetSupport = true --css
-require "lspconfig".pylsp.setup {
+require("lspconfig").pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
@@ -34,23 +27,30 @@ require "lspconfig".pylsp.setup {
     }
 }
 
-require "lspconfig".jedi_language_server.setup {
+require("lspconfig").jedi_language_server.setup {
     on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
     end
-} --Python
-
-require "lspconfig".html.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end,
-    --HTML
-    capabilities = capabilities
 }
 
-require "lspconfig".tsserver.setup {
+require("lspconfig").quick_lint_js.setup {
     on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
     end
-} --TypeScript
-
+}
+require("lspconfig").html.setup {
+    on_attach = function(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
+    end,
+    capabilities = capabilities
+}
+require'lspconfig'.sumneko_lua.setup {
+    on_attach = function(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
+    end,
+}
+--[[require("lspconfig").tsserver.setup {]]
+    --[[on_attach = function(client, bufnr)]]
+        --[[require "lsp_signature".on_attach(signature_setup, bufnr)]]
+    --[[end]]
+--[[}]]

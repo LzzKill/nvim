@@ -1,16 +1,8 @@
-require('init')
+require("plugin-config")
+
 require("plugins")
 require("map")
 require("LSP")
 require("cfg")
-
-require("plugin-config/bufferline")
-require("plugin-config/lualine")
-require("plugin-config/nvim-navic")
-require("plugin-config/trouble")
-require("plugin-config/neotree")
-require("plugin-config/nvim-headband")
-require("plugin-config/tokyonight")
-require("plugin-config/alpha")
-vim.cmd"colorscheme tokyonight"
+vim.cmd"colorscheme inkstained"
 
