@@ -49,7 +49,6 @@ return require("packer").startup(
             use "turbio/bracey.vim" --[[预览HTML]]
             use "dag/vim-fish" --Fish
             use "dhruvasagar/vim-table-mode"
-            use "jiangmiao/auto-pairs"
             use "tenfyzhong/CompleteParameter.vim"
             use "mg979/vim-visual-multi"
             --use "nvim-lua/plenary.nvim"
