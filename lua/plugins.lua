@@ -11,7 +11,8 @@ return require("packer").startup(
         function(use)
             use "wbthomason/packer.nvim" -- Packer
 
-            use { --UI
+            use {
+                --UI
                 "kyazdani42/nvim-web-devicons",
                 "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim"
@@ -19,6 +20,7 @@ return require("packer").startup(
             use {
                 "ap/vim-css-color", -- CSS Color
                 "folke/tokyonight.nvim", -- Color
+                "jiangmiao/auto-pairs", -- auto pairs
                 --"yuttie/inkstained-vim",
                 "lukas-reineke/indent-blankline.nvim",
                 "nvim-neo-tree/neo-tree.nvim",
@@ -61,11 +63,10 @@ return require("packer").startup(
             use "ray-x/lsp_signature.nvim"
             use {
                 -- Code Syntax
+                "p00f/nvim-ts-rainbow", -- Rainbow
                 "nvim-treesitter/nvim-treesitter",
                 run = ":TSUpdate"
             }
-            use "p00f/nvim-ts-rainbow"
-
             use {
                 --LSP and LSP Install
                 "williamboman/mason.nvim",
