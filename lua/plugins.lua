@@ -19,7 +19,7 @@ return require("packer").startup(
             use {
                 "ap/vim-css-color", -- CSS Color
                 "folke/tokyonight.nvim", -- Color
-                "yuttie/inkstained-vim",
+                --"yuttie/inkstained-vim",
                 "lukas-reineke/indent-blankline.nvim",
                 "nvim-neo-tree/neo-tree.nvim",
                 "s1n7ax/nvim-window-picker",
