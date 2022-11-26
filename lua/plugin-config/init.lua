@@ -1,6 +1,3 @@
--- alpha.nvim
-require("plugins.StartX").setup()
-
 -- indent_blankline
 vim.opt.termguicolors = true
 vim.cmd[[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]

@@ -10,7 +10,7 @@ return require("packer").startup(
     {
         function(use)
             use "wbthomason/packer.nvim" -- Packer
-
+            use "nvim-lua/plenary.nvim"
             use {
                 --UI
                 "kyazdani42/nvim-web-devicons",
@@ -21,7 +21,6 @@ return require("packer").startup(
                 "ap/vim-css-color", -- CSS Color
                 "folke/tokyonight.nvim", -- Color
                 "jiangmiao/auto-pairs", -- auto pairs
-                --"yuttie/inkstained-vim",
                 "lukas-reineke/indent-blankline.nvim",
                 "nvim-neo-tree/neo-tree.nvim",
                 "s1n7ax/nvim-window-picker",
@@ -42,7 +41,6 @@ return require("packer").startup(
             use {
                 "nvim-telescope/telescope.nvim",
                 tag = "0.1.0",
-                requires = {{"nvim-lua/plenary.nvim"}}
             }
             use {
                 "lewis6991/gitsigns.nvim",
@@ -53,7 +51,6 @@ return require("packer").startup(
             use "dhruvasagar/vim-table-mode"
             use "tenfyzhong/CompleteParameter.vim"
             use "mg979/vim-visual-multi"
-            --use "nvim-lua/plenary.nvim"
             use {
                 "glacambre/firenvim",
                 run = function()
@@ -62,10 +59,11 @@ return require("packer").startup(
             }
             use "ray-x/lsp_signature.nvim"
             use {
-                -- Code Syntax
-                "p00f/nvim-ts-rainbow", -- Rainbow
-                "nvim-treesitter/nvim-treesitter",
-                run = ":TSUpdate"
+                {
+                    "nvim-treesitter/nvim-treesitter",
+                    run = ":TSUpdate"
+                },
+                "p00f/nvim-ts-rainbow"--Rainbow
             }
             use {
                 --LSP and LSP Install
