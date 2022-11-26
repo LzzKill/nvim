@@ -17,10 +17,11 @@ return require("packer").startup(
                 "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim"
             }
+            use "windwp/nvim-autopairs" --括号自动补全
+
             use {
                 "ap/vim-css-color", -- CSS Color
                 "folke/tokyonight.nvim", -- Color
-                "jiangmiao/auto-pairs", -- auto pairs
                 "lukas-reineke/indent-blankline.nvim",
                 "nvim-neo-tree/neo-tree.nvim",
                 "s1n7ax/nvim-window-picker",
@@ -40,7 +41,7 @@ return require("packer").startup(
             use "junegunn/vim-peekaboo"
             use {
                 "nvim-telescope/telescope.nvim",
-                tag = "0.1.0",
+                tag = "0.1.0"
             }
             use {
                 "lewis6991/gitsigns.nvim",
@@ -63,7 +64,8 @@ return require("packer").startup(
                     "nvim-treesitter/nvim-treesitter",
                     run = ":TSUpdate"
                 },
-                "p00f/nvim-ts-rainbow"--Rainbow
+                "p00f/nvim-ts-rainbow"
+                --Rainbow
             }
             use {
                 --LSP and LSP Install

@@ -1,8 +1,6 @@
 vim.opt.conceallevel = 2
 vim.opt.encoding = "utf-8"
 vim.opt.expandtab = true
-vim.opt.fo = cqrt
-vim.opt.helplang = cn
 vim.opt.laststatus = 2
 vim.opt.linebreak = true
 vim.opt.number = true

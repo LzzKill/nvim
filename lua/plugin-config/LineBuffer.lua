@@ -1,4 +1,4 @@
-require('lualine').setup {
+require'lualine'.setup {
   options = {
     icons_enabled = true,
     theme = "auto",
@@ -45,7 +45,7 @@ require('lualine').setup {
 --[[}]]
 --[[)]]
 
-require("bufferline").setup(
+require"bufferline".setup(
 {
     options = {
         diagnostics = "nvim_lsp",
