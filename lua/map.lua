@@ -38,6 +38,7 @@ map("n", "<leader>FF", ":Telescope<CR>", opt_n)
 map("n", "<leader>ff", ":Telescope find_files<CR>", opt_n)
 map("n", "<leader>f<leader>", ":Autoformat<CR>", opt_n)
 -- NeoTree
+map("n", "<leader>n<leader>", ":Neotree<CR>", opt_n)
 map("n", "<leader>nn", ":NeoTreeShow<CR>", opt_n)
 map("n", "<leader>nm", ":NeoTreeClose<CR>", opt_n)
 -- BufferLine
