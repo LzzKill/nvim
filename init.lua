@@ -1,8 +1,5 @@
-require"plugin-config"
-
-require"plugins"
-require"map"
-require"LSP"
 require"cfg"
+require"map"
+require"plugins"
+require"plugin-config"
 vim.cmd"colorscheme tokyonight"
-
