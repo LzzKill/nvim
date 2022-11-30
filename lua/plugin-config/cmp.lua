@@ -4,12 +4,9 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local source_names = {
     nvim_lsp = "LSP",
     treesitter = "TS",
-    emoji = "Emoji",
     path = "Path",
-    calc = "Calc",
     luasnip = "Snip",
-    buffer = "Buf",
-    spell = "Spell"
+    buffer = "Buf"
 }
 local source_icons = {
     File = "",
@@ -68,7 +65,8 @@ cmp.setup {
         {name = "luasnip"}
     },
     {
-        {name = "buffer"}
+        {name = "buffer"},
+        {name = "treesitter"}
     }
 }
 

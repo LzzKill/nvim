@@ -1,5 +1,3 @@
-vim.opt.conceallevel = 2
-vim.opt.encoding = "utf-8"
 vim.opt.expandtab = true
 vim.opt.laststatus = 2
 vim.opt.linebreak = true
@@ -7,8 +5,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hls = true
 vim.opt.ruler = true
-vim.opt.showcmd = true
-vim.opt.showmode = true
 vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 5
 vim.opt.sidescrolloff = 4
@@ -18,9 +14,6 @@ vim.opt.ww = "<,>,h,l"
 vim.opt.wildmenu = true
 vim.opt.wrap = true
 vim.opt.wrapmargin = 2
-vim.opt.cpt = ".,k,w,b"
-vim.opt.completeopt = "menu,menuone,noselect"
-
 vim.g["table_mode_corner"] = "|"
 vim.g["table_mode_border"] = 0
 vim.g["table_mode_fillchar"] = "="
@@ -39,8 +32,8 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
 \ <SID>isAtStartOfLine('__') ?
 \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-set fillchars=eob:\ ,vert:\ 
-autocmd FileType markdown nnoremap <C-p> :call mdip#MarkdownClipboardImage()<CR>F%i
+"set fillchars=eob:\ ,vert:\ 
+set fillchars=vert:\ 
 ]]
 
 -- if neoclide
