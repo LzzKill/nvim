@@ -4,7 +4,6 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local source_names = {
     nvim_lsp = "LSP",
     treesitter = "TS",
-    path = "Path",
     luasnip = "Snip",
     buffer = "Buf"
 }
@@ -60,14 +59,16 @@ cmp.setup {
         ["<A-e>"] = cmp.mapping.abort(),
         ["<A-n>"] = cmp.mapping.confirm({select = true}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     },
-    sources = cmp.config.sources {
-        {name = "nvim_lsp"},
-        {name = "luasnip"}
-    },
-    {
-        {name = "buffer"},
-        {name = "treesitter"}
-    }
+    sources = cmp.config.sources(
+        {
+            {name = "nvim_lsp"},
+            {name = "luasnip"}
+        },
+        {
+            {name = "buffer"},
+            {name = "treesitter"}
+        }
+    )
 }
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -75,14 +76,9 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 cmp.setup.filetype(
     "gitcommit",
     {
-        sources = cmp.config.sources(
-            {
-                {name = "cmp_git"} -- You can specify the `cmp_git` source if you were installed it.
-            },
-            {
-                {name = "buffer"}
-            }
-        )
+        sources = cmp.config.sources {
+            {name = "buffer"}
+        }
     }
 )
 
@@ -101,9 +97,6 @@ cmp.setup.cmdline(
     {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources(
-            {
-                {name = "path"}
-            },
             {
                 {name = "cmdline"}
             }

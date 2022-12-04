@@ -72,7 +72,6 @@ require("neo-tree").setup({
     },
 
     window = {
-        --position = "right",
         width = 30,
 
         mapping_options = {

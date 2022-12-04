@@ -11,11 +11,11 @@ local on_attach = function(client, bufnr)
     map("n", "K", vim.lsp.buf.hover, bufopts)
     map("n", "gi", vim.lsp.buf.implementation, bufopts)
     map("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-    map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+    map("n", "<space>WA", vim.lsp.buf.add_workspace_folder, bufopts)
+    map("n", "<space>WR", vim.lsp.buf.remove_workspace_folder, bufopts)
     map(
         "n",
-        "<space>wl",
+        "<space>WL",
         function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end,
@@ -27,25 +27,23 @@ local on_attach = function(client, bufnr)
     map("n", "gr", vim.lsp.buf.references, bufopts)
     map(
         "n",
-        "<space>f",
+        "<space>fF",
         function()
             vim.lsp.buf.format {async = true}
         end,
         bufopts
     )
 end
-require"lspconfig".clangd.setup {
-    on_attach = on_attach()
+local lspconfig = require("lspconfig")
+local LSP = {
+    "clangd",
+    "cssls",
+    "pyright",
+    "quick_lint_js",
+    "html"
 }
-require"lspconfig".cssls.setup {
-    on_attach = on_attach()
-}
-require"lspconfig".pyright.setup {
-    on_attach = on_attach()
-}
-require"lspconfig".quick_lint_js.setup {
-    on_attach = on_attach()
-}
-require"lspconfig".html.setup {
-    on_attach = on_attach()
-}
+for i = 1, #LSP do
+    lspconfig[LSP[i]].setup {
+        on_attach = on_attach()
+    }
+end
