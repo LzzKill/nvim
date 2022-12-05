@@ -1,6 +1,3 @@
--- alpha.nvim
-require("plugins.StartX").setup()
-
 -- indent_blankline
 vim.opt.termguicolors = true
 vim.cmd[[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
@@ -24,9 +21,12 @@ require"indent_blankline".setup {
 
 require"lsp_signature".setup()
 require"gitsigns".setup()
+require"lspsaga"
 -- Loader PluginConfig
 require"plugin-config.LineBuffer"
 require"plugin-config.neotree"
 require"plugin-config.nvim-treesitter"
 require"plugin-config.tokyonight"
 require"plugin-config.cmp"
+require"plugin-config.nvim-autopairs"
+require"plugin-config.Server"
