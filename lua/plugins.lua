@@ -10,14 +10,15 @@ return require("packer").startup(
             use {
                 -- color
                 "folke/tokyonight.nvim",
-                {"catppuccin/nvim", as = "catppuccin"}
+                {"catppuccin/nvim", as = "catppuccin"},
+                "Shatur/neovim-ayu"
             }
 
             use {
                 "akinsho/bufferline.nvim",
                 "nvim-lualine/lualine.nvim"
             }
-            use "windwp/nvim-autopairs" --括号自动补全
+            use "windwp/nvim-autopairs"
             use {
                 "ap/vim-css-color", -- CSS Color
                 "lukas-reineke/indent-blankline.nvim",
@@ -33,7 +34,6 @@ return require("packer").startup(
                     vim.fn["mkdp#util#install"]()
                 end
             }
-            use "Chiel92/vim-autoformat"
             use "preservim/nerdcommenter"
             use "junegunn/vim-peekaboo"
             use {
@@ -61,6 +61,7 @@ return require("packer").startup(
                 "p00f/nvim-ts-rainbow"
             }
             use "neovim/nvim-lspconfig"
+            use "jose-elias-alvarez/null-ls.nvim"
             use {
                 "hrsh7th/nvim-cmp", -- Core
                 "hrsh7th/cmp-nvim-lsp", -- LSP
