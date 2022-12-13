@@ -2,13 +2,13 @@ local on_attach = function(client, bufnr)
     require"lsp_signature".on_attach(signature_setup, bufnr)
     local map = vim.keymap.set
     -- Enable completion triggered by <c-x><c-o>
-    --vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    --[[vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")]]
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = {noremap = true, silent = true, buffer = bufnr}
     map("n", "gD", vim.lsp.buf.declaration, bufopts)
     map("n", "gd", vim.lsp.buf.definition, bufopts)
-    map("n", "K", vim.lsp.buf.hover, bufopts)
+    map("n", "K", ":Lspsaga hover_doc", bufopts)
     map("n", "gi", vim.lsp.buf.implementation, bufopts)
     map("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
     map("n", "<space>WA", vim.lsp.buf.add_workspace_folder, bufopts)
@@ -22,8 +22,8 @@ local on_attach = function(client, bufnr)
         bufopts
     )
     map("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-    map("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-    map("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+    map("n", "\\lr", ":Lspsaga rename", bufopts)
+    map("n", "\\la", ":Lspsaga code_action", bufopts)
     map("n", "gr", vim.lsp.buf.references, bufopts)
     map(
         "n",
