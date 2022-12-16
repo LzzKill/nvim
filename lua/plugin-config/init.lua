@@ -1,32 +1,20 @@
 -- indent_blankline
 vim.opt.termguicolors = true
-vim.cmd[[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-vim.opt.list = true
-require"indent_blankline".setup {
-    space_char_blankline = " ",
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
-}
 
-require"lsp_signature".setup()
-require"gitsigns".setup()
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+
+require("indent_blankline").setup {
+  space_char_blankline = " ",
+  show_current_context = true,
+  show_current_context_start = true,
+}
+Plugins = {"lsp_signature", "gitsigns", "noice", "scrollbar.handlers.gitsigns", "todo-comments", "colorizer"}
+
+for _, Plugin in ipairs(Plugins) do require(Plugin).setup() end
 require"lspsaga"
--- Loader PluginConfig
-require"plugin-config.LineBuffer"
-require"plugin-config.neotree"
-require"plugin-config.nvim-treesitter"
-require"plugin-config.tokyonight"
-require"plugin-config.cmp"
-require"plugin-config.nvim-autopairs"
-require"plugin-config.Server"
+-- Loader PluginConfigs
+
+local Config = {"LineBuffer", "neotree", "nvim-treesitter", "nvim-autopairs", "tokyonight", "cmp", "nvim-autopairs", "Server", "null-ls", "nvim-telescope", "Comment"}
+
+for _, Plugin in ipairs(Config) do require("plugin-config."..Plugin) end
