@@ -42,6 +42,21 @@ map("n", "<A-H>", ":BufferLineCycleNext<CR>", opt_n)
 map("n", "<A-P>", ":BufferLinePink<CR>", opt_n)
 map("n", "<A-C>", ":BufferLinePinkClose<CR>", opt_n)
 
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+-- You can also specify a list of valid jump keywords
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next({keywords = { "ERROR", "WARNING" }})
+end, { desc = "Next error/warning todo comment" })
+
 -- LSP
 local lsp_opts = {noremap = true, silent = true}
 map = vim.keymap.set
@@ -49,3 +64,4 @@ map("n", "<space>e", vim.diagnostic.open_float, lsp_opts)
 map("n", "[d", vim.diagnostic.goto_prev, lsp_opts)
 map("n", "]d", vim.diagnostic.goto_next, lsp_opts)
 map("n", "<space>Q", vim.diagnostic.setloclist, lsp_opts)
+
