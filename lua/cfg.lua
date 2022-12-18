@@ -15,5 +15,3 @@ vim.opt.wildmenu = true
 vim.opt.wrap = true
 vim.opt.wrapmargin = 2
 
-
-

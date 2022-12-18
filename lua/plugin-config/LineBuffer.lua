@@ -12,10 +12,10 @@ require"lualine".setup {
     lualine_c = {"fileformat"},
     lualine_x = {
       {
-        noice.api.status.mode.get,
-        cond = noice.api.status.mode.has,
+        require("noice").api.status.command.get,
+        cond = require("noice").api.status.command.has,
         color = { fg = "#ff9e64" },
-      }
+      },
     },
     lualine_y = {"filetype", "progress"},
     lualine_z = {
