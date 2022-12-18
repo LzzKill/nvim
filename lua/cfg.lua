@@ -14,4 +14,4 @@ vim.opt.ww = "<,>,h,l"
 vim.opt.wildmenu = true
 vim.opt.wrap = true
 vim.opt.wrapmargin = 2
-
+vim.opt.encoding = "UTF-8"
