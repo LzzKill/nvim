@@ -3,10 +3,16 @@ local filetypes = {
 }
 
 local cmp = {
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-cmdline",
+  {
+    "hrsh7th/nvim-cmp",
+    event = "VimEnter",
+    config = function()
+      require("Plugin.source.cmp")
+    end
+  },
+  { "hrsh7th/cmp-nvim-lsp", event = "VimEnter" },
+  { "hrsh7th/cmp-buffer", event = "VimEnter" },
+  { "hrsh7th/cmp-cmdline", event = "VimEnter" },
 }
 local Telescope = {
   "nvim-telescope/telescope-ui-select.nvim",
@@ -93,7 +99,10 @@ Plugins = {
   "kyazdani42/nvim-web-devicons",
   "smjonas/live-command.nvim",
   "rainbowhxch/beacon.nvim",
-  "nvim-tree/nvim-tree.lua",
+  { "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("Plugin.source.nvim-tree")
+    end, event = "VimEnter" },
   "s1n7ax/nvim-window-picker",
   { "windwp/nvim-autopairs", config = function()
     require("nvim-autopairs").setup {
@@ -137,7 +146,3 @@ Plugins_ = {
 for _, Plugin in ipairs(Plugins_) do require(Plugin).setup() end
 require "lspsaga"
 -- Loader PluginConfigs
-local Config = {
-  "tokyonight", "cmp", "Server"
-}
-for _, Plugin in ipairs(Config) do require("Plugin.source." .. Plugin) end
