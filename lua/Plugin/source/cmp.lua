@@ -1,12 +1,12 @@
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local resource = require("Plugin.resource.cmp")
+local resource = require("Plugin.resource")
 cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      vim_item.kind = resource.source_icons[vim_item.kind]
-      vim_item.menu = resource.source_names[entry.source.name]
+      vim_item.kind = resource.file_icons[vim_item.kind]
+      vim_item.menu = resource.cmp_names[entry.source.name]
       return vim_item
     end
   },
