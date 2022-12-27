@@ -111,7 +111,6 @@ Plugins = {
   "rafamadriz/friendly-snippets",
   "ray-x/lsp_signature.nvim",
   { "neovim/nvim-lspconfig",
-    ft = filetypes,
     config = function()
       local on_attach = require("Plugin.source.Server")
       local lspconfig = require("lspconfig")
