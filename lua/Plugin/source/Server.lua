@@ -4,28 +4,28 @@ local on_attach = function(client, bufnr)
   -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
   local maps = {
-    { "gD", vim.lsp.buf.declaration, bufopts },
-    { "gd", vim.lsp.buf.definition, bufopts },
-    { "K", ":Lspsaga hover_doc", bufopts },
-    { "gi", vim.lsp.buf.implementation, bufopts },
-    { "<C-k>", vim.lsp.buf.signature_help, bufopts },
-    { "<space>Wa", vim.lsp.buf.add_workspace_folder, bufopts },
-    { "<space>Wr", vim.lsp.buf.remove_workspace_folder, bufopts },
+    { "<space>l", vim.lsp.buf.declaration, opts },
+    { "gd", vim.lsp.buf.definition, opts },
+    { "K", ":Lspsaga hover_doc", opts },
+    { "gi", vim.lsp.buf.implementation, opts },
+    { "<C-k>", vim.lsp.buf.signature_help, opts },
+    { "<space>Wa", vim.lsp.buf.add_workspace_folder, opts },
+    { "<space>Wr", vim.lsp.buf.remove_workspace_folder, opts },
     { "<space>WL", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end,
-      bufopts
+      opts
     },
-    { "<space>D", vim.lsp.buf.type_definition, bufopts },
-    { "<leader>lr", ":Lspsaga rename", bufopts },
-    { "<leader>la", ":Lspsaga code_action", bufopts },
-    { "gr", vim.lsp.buf.references, bufopts },
-    { "<space><leader>", function()
+    { "<space>D", vim.lsp.buf.type_definition, opts },
+    { "<space>lr", "<cmd>Lspsaga rename<CR>", opts },
+    { "<leader>lc", "<cmd>Lspsaga code_action<CR>", opts },
+    { "gr", vim.lsp.buf.references, opts },
+    { "<space>lf", function()
       vim.lsp.buf.format { async = true }
     end,
-      bufopts
+      opts
     },
   }
   require("map")(maps)
