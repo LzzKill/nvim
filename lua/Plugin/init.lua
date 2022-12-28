@@ -82,7 +82,9 @@ Plugins = {
   { "sindrets/diffview.nvim", event = "BufWinEnter" },
   { "akinsho/toggleterm.nvim", event = "BufWinEnter" },
   { "folke/todo-comments.nvim", event = "BufReadPre" },
-  { "numToStr/Comment.nvim", event = "BufReadPre" },
+  { "numToStr/Comment.nvim", event = "BufReadPre", config = function()
+    require("Comment").setup { toggler = { line = "<space>cc", }, opleader = { line = "<space>c", }, }
+  end },
   { "ray-x/cmp-treesitter", event = "BufReadPre" },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = "BufReadPre",
     config = function() require("Plugin.source.nvim-treesitter") end },
