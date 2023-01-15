@@ -17,7 +17,6 @@ M.N_maps = {
   { "<space>FF", "<cmd>Telescope<CR>" },
   { "<space>ff", "<cmd>Telescope find_files<CR>" },
   { "<space>n<space>", "<cmd>NvimTreeToggle<CR>" },
-  { "<space>e", "<cmd>NvimTreeToggle<CR>" },
   { "<A-L>", "<cmd>BufferLineCyclePrev<CR>" },
   { "<A-H>", "<cmd>BufferLineCycleNext<CR>" },
   { "<A-P>", "<cmd>BufferLinePink<CR>" },
