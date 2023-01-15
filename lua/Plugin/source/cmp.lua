@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local resource = require("Plugin.resource")
+
 cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -11,7 +12,9 @@ cmp.setup({
     end
   },
   snippet = {
-    expand = function(args) require("luasnip").lsp_expand(args.body) end
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end
   },
   window = {
     completion = cmp.config.window.bordered(),
