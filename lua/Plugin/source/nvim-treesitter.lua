@@ -1,4 +1,4 @@
-require "nvim-treesitter.configs".setup {
+require "nvim-treesitter.configs".setup({
   highlight = {},
   rainbow = {
     enable = true,
@@ -8,5 +8,4 @@ require "nvim-treesitter.configs".setup {
     -- colors = {}, -- table of hex strings
     -- termcolors = {} -- table of colour name strings
   }
-}
-require"nvim-treesitter".setup()
+})

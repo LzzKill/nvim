@@ -1,4 +1,4 @@
-require"bufferline".setup({
+require("bufferline").setup({
   options = {
     diagnostics = "nvim_lsp",
     offsets = {{filetype = "neo-tree", text = "C:/Windows/explorer.exe"}},
