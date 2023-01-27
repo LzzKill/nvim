@@ -7,7 +7,7 @@ local on_attach = function(client, bufnr)
   local maps = {
     { "<space>l", vim.lsp.buf.declaration, opts },
     { "gd", vim.lsp.buf.definition, opts },
-    { "K", ":Lspsaga hover_doc", opts },
+    { "K", vim.lsp.buf.hover, opts },
     { "gi", vim.lsp.buf.implementation, opts },
     { "<C-k>", vim.lsp.buf.signature_help, opts },
     { "<space>Wa", vim.lsp.buf.add_workspace_folder, opts },
@@ -18,8 +18,8 @@ local on_attach = function(client, bufnr)
       opts
     },
     { "<space>D", vim.lsp.buf.type_definition, opts },
-    { "<space>lr", "<cmd>Lspsaga rename<CR>", opts },
-    { "<leader>lc", "<cmd>Lspsaga code_action<CR>", opts },
+    { "<space>lr", vim.lsp.buf.rename, opts },
+    { "<leader>lc", vim.lsp.buf.code_action, opts },
     { "gr", vim.lsp.buf.references, opts },
     { "<space>lf", function()
       vim.lsp.buf.format { async = true }
