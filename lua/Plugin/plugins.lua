@@ -39,13 +39,12 @@ local colorscheme = {
 local ui = {
   { "karb94/neoscroll.nvim", event = "BufWinEnter", config = function() require('neoscroll').setup() end },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter", config = function() require("colorizer").setup() end },
-  { "folke/noice.nvim", event = "BufWinEnter", config = function() require("noice").setup() end },
+  { "folke/noice.nvim", event = "BufWinEnter", config = function() require("noice").setup({presets = { lsp_doc_border = true }})
+  end },
+  { "rcarriga/nvim-notify", event = "BufWinEnter",
+    config = function() require("notify").setup({ background_colour = "#000000", }) end },
   { "lukas-reineke/indent-blankline.nvim", event = "BufReadPre",
     config = function() require("Plugin.source.indent_blankline") end },
-  { "petertriho/nvim-scrollbar", event = "BufWinEnter", config = function()
-    require("scrollbar").setup()
-    require("scrollbar.handlers.gitsigns").setup()
-  end },
 }
 local markdown = {
   { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
@@ -95,9 +94,9 @@ local Plugins = {
     "glacambre/firenvim",
     build = function() vim.fn["firenvim#install"](0) end
   },
-  {"L3MON4D3/LuaSnip", ft = filetypes, config = function()
-      require("luasnip.loaders.from_vscode").lazy_load(filetypes)
-    end
+  { "L3MON4D3/LuaSnip", ft = filetypes, config = function()
+    require("luasnip.loaders.from_vscode").lazy_load(filetypes)
+  end
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
@@ -111,7 +110,6 @@ local Plugins = {
   },
   { "jose-elias-alvarez/null-ls.nvim",
     config = require("Plugin.source.null-ls"), },
-  { "glepnir/lspsaga.nvim", ft = filetypes, branch = "main" },
 }
 
 return Plugins
