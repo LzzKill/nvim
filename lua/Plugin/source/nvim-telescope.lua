@@ -15,7 +15,7 @@ telescope.setup({
     }
   }
 })
-local telescope_plugins = { "fzf", "noice", "ui-select" }
+local telescope_plugins = { "fzf", "noice", "ui-select", "notify"}
 for _, plugins in ipairs(telescope_plugins) do
   telescope.load_extension(plugins)
 end
