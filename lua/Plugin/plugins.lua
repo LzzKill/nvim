@@ -100,7 +100,12 @@ local Plugins = {
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-  "neovim/nvim-lspconfig",
+{"neovim/nvim-lspconfig", config = function()
+  local lspconfig = require("lspconfig")
+  local on_attach = require("Plugin.source.Server")
+  local LSP = { "clangd", "cssls", "pyright", "quick_lint_js", "html" }
+  for _, lsp in ipairs(LSP) do lspconfig[lsp].setup { on_attach = on_attach() } end
+end},
   { "jose-elias-alvarez/null-ls.nvim",
     config = require("Plugin.source.null-ls"), },
 }
