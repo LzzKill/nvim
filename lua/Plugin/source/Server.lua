@@ -6,13 +6,13 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   local maps = {
     { "<space>l", vim.lsp.buf.declaration, opts },
-    { "gd", vim.lsp.buf.definition, opts },
-    { "K", vim.lsp.buf.hover, opts },
-    { "gi", vim.lsp.buf.implementation, opts },
+    { "<space>ld", vim.lsp.buf.definition, opts },
+    { "<space>lk", vim.lsp.buf.hover, opts },
+    { "<space>gi", vim.lsp.buf.implementation, opts },
     { "<C-k>", vim.lsp.buf.signature_help, opts },
-    { "<space>Wa", vim.lsp.buf.add_workspace_folder, opts },
-    { "<space>Wr", vim.lsp.buf.remove_workspace_folder, opts },
-    { "<space>WL", function()
+    { "<leader>Wa", vim.lsp.buf.add_workspace_folder, opts },
+    { "<leader>Wr", vim.lsp.buf.remove_workspace_folder, opts },
+    { "<leader>WL", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end,
       opts

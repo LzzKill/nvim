@@ -21,7 +21,7 @@ cmp.setup({
     documentation = cmp.config.window.bordered()
   },
   mapping = cmp.mapping.preset.insert {
-    ["<A-k>"] = cmp.mapping.scroll_docs(-4),
+    ["<A-k>"] = cmp.mapping.scroll_docs( -4),
     ["<A-j>"] = cmp.mapping.scroll_docs(4),
     ["<S-Space>"] = cmp.mapping.complete(),
     ["<A-e>"] = cmp.mapping.abort(),
@@ -34,12 +34,3 @@ cmp.setup({
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 cmp.setup.filetype("gitcommit",
   { sources = cmp.config.sources { { name = "buffer" } } })
-cmp.setup.cmdline({ "/", "?" }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = { { name = "buffer" } }
-})
-
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({ { name = "cmdline" } })
-})
