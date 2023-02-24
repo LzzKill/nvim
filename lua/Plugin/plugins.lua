@@ -12,7 +12,6 @@ local cmp = {
   },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-cmdline" },
 }
 local Telescope = {
   "nvim-telescope/telescope-ui-select.nvim",
@@ -37,9 +36,10 @@ local colorscheme = {
 }
 
 local ui = {
-  { "karb94/neoscroll.nvim", event = "BufWinEnter", config = function() require('neoscroll').setup() end },
+  { "karb94/neoscroll.nvim",       event = "BufWinEnter", config = function() require('neoscroll').setup() end },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter", config = function() require("colorizer").setup() end },
-  { "folke/noice.nvim", event = "BufWinEnter", config = function() require("noice").setup({presets = { lsp_doc_border = true }})
+  { "folke/noice.nvim", event = "BufWinEnter", config = function()
+    require("noice").setup({ presets = { lsp_doc_border = true } })
   end },
   { "rcarriga/nvim-notify", event = "BufWinEnter",
     config = function() require("notify").setup({ background_colour = "#000000", }) end },
@@ -47,7 +47,7 @@ local ui = {
     config = function() require("Plugin.source.indent_blankline") end },
 }
 local markdown = {
-  { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
+  { "dhruvasagar/vim-table-mode",      ft = { "markdown" } },
   { "iamcco/mathjax-support-for-mkdp", ft = { "markdown" } },
   {
     "iamcco/markdown-preview.nvim",
@@ -57,12 +57,12 @@ local markdown = {
 }
 local Plugins = {
   "folke/lazy.nvim", -- Plugin mamager
-  { "akinsho/bufferline.nvim", event = "BufWinEnter", config = function() require("Plugin.source.BufferLine") end },
+  { "akinsho/bufferline.nvim",   event = "BufWinEnter", config = function() require("Plugin.source.BufferLine") end },
   { "nvim-lualine/lualine.nvim", event = "BufWinEnter", config = function() require("Plugin.source.LuaLine") end },
-  { "lewis6991/gitsigns.nvim", event = "BufRead" },
-  { "sindrets/diffview.nvim", event = "BufWinEnter" },
-  { "akinsho/toggleterm.nvim", event = "Vimenter", config = function() require("toggleterm").setup() end },
-  { "folke/todo-comments.nvim", event = "BufReadPre", config = function() require("todo-comments").setup() end },
+  { "lewis6991/gitsigns.nvim",   event = "BufRead" },
+  { "sindrets/diffview.nvim",    event = "BufWinEnter" },
+  { "akinsho/toggleterm.nvim",   event = "Vimenter",    config = function() require("toggleterm").setup() end },
+  { "folke/todo-comments.nvim",  event = "BufReadPre",  config = function() require("todo-comments").setup() end },
   { "numToStr/Comment.nvim", event = "BufReadPre", config = function()
     require("Comment").setup { toggler = { line = "<space>cc", }, opleader = { line = "<space>c", }, }
   end },
@@ -100,14 +100,7 @@ local Plugins = {
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-  { "neovim/nvim-lspconfig",
-    config = function()
-      local on_attach = require("Plugin.source.Server")
-      local lspconfig = require("lspconfig")
-      local LSP = { "clangd", "cssls", "pyright", "quick_lint_js", "html", "sumneko_lua" }
-      for _, lsp in ipairs(LSP) do lspconfig[lsp].setup { on_attach = on_attach() } end
-    end,
-  },
+  "neovim/nvim-lspconfig",
   { "jose-elias-alvarez/null-ls.nvim",
     config = require("Plugin.source.null-ls"), },
 }
