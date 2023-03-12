@@ -1,5 +1,8 @@
 require "nvim-treesitter.configs".setup({
-  highlight = {},
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false
+    },
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
