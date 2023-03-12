@@ -15,22 +15,73 @@ local cmp = {
 }
 local Telescope = {
   "nvim-telescope/telescope-ui-select.nvim",
-  { "nvim-telescope/telescope.nvim",
+  {
+    "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
     config = function()
       require("Plugin.source.nvim-telescope")
     end,
-    event = "BufWinEnter" },
+    event = "BufWinEnter"
+  },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 }
 
 local colorscheme = {
   -- "tiagovla/tokyodark.nvim",
-  { "folke/tokyonight.nvim", config = require("Plugin.source.tokyonight") },
+  -- { "folke/tokyonight.nvim", config = require("Plugin.source.tokyonight") },
   -- "navarasu/onedark.nvim",
   -- "morhetz/gruvbox",
   -- "sainnhe/gruvbox-material",
-  -- { "catppuccin/nvim", name = "catppuccin" },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        background = {
+          light = "latte",
+          dark = "mocha",
+        },
+        transparent_background = true,
+        show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+        term_colors = false,
+        dim_inactive = {
+          enabled = false,
+          shade = "dark",
+          percentage = 0.15,
+        },
+        no_italic = false, -- Force no italic
+        no_bold = false, -- Force no bold
+        styles = {
+          comments = { "italic" },
+          conditionals = { "italic" },
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        color_overrides = {},
+        custom_highlights = {},
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          notify = true,
+          noice = true
+        },
+      })
+
+      -- setup must be called before loading
+      vim.cmd.colorscheme "catppuccin"
+    end
+  },
   -- "Shatur/neovim-ayu",
   -- "LunarVim/lunar.nvim"
 }
@@ -38,13 +89,23 @@ local colorscheme = {
 local ui = {
   { "karb94/neoscroll.nvim",       event = "BufWinEnter", config = function() require('neoscroll').setup() end },
   { "norcalli/nvim-colorizer.lua", event = "BufWinEnter", config = function() require("colorizer").setup() end },
-  { "folke/noice.nvim", event = "BufWinEnter", config = function()
-    require("noice").setup({ presets = { lsp_doc_border = true } })
-  end },
-  { "rcarriga/nvim-notify", event = "BufWinEnter",
-    config = function() require("notify").setup({ background_colour = "#000000", }) end },
-  { "lukas-reineke/indent-blankline.nvim", event = "BufReadPre",
-    config = function() require("Plugin.source.indent_blankline") end },
+  {
+    "folke/noice.nvim",
+    event = "BufWinEnter",
+    config = function()
+      require("noice").setup({ presets = { lsp_doc_border = true } })
+    end
+  },
+  {
+    "rcarriga/nvim-notify",
+    event = "BufWinEnter",
+    config = function() require("notify").setup({ background_colour = "#000000", }) end
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = function() require("Plugin.source.indent_blankline") end
+  },
 }
 local markdown = {
   { "dhruvasagar/vim-table-mode",      ft = { "markdown" } },
@@ -63,12 +124,20 @@ local Plugins = {
   { "sindrets/diffview.nvim",    event = "BufWinEnter" },
   { "akinsho/toggleterm.nvim",   event = "Vimenter",    config = function() require("toggleterm").setup() end },
   { "folke/todo-comments.nvim",  event = "BufReadPre",  config = function() require("todo-comments").setup() end },
-  { "numToStr/Comment.nvim", event = "BufReadPre", config = function()
-    require("Comment").setup { toggler = { line = "<space>cc", }, opleader = { line = "<space>c", }, }
-  end },
+  {
+    "numToStr/Comment.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("Comment").setup { toggler = { line = "<space>cc", }, opleader = { line = "<space>c", }, }
+    end
+  },
   { "ray-x/cmp-treesitter", event = "BufReadPre" },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = "BufReadPre",
-    config = function() require("Plugin.source.nvim-treesitter") end },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = "BufReadPre",
+    config = function() require("Plugin.source.nvim-treesitter") end
+  },
   { "p00f/nvim-ts-rainbow", event = "BufReadPost", },
   "MunifTanjim/nui.nvim",
   cmp,
@@ -80,34 +149,48 @@ local Plugins = {
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
   { "rainbowhxch/beacon.nvim", config = function() require("beacon").setup() end },
-  { "nvim-tree/nvim-tree.lua",
+  {
+    "nvim-tree/nvim-tree.lua",
     config = function()
       require("Plugin.source.nvim-tree")
-    end, event = "VimEnter" },
-  { "windwp/nvim-autopairs", config = function()
-    require("nvim-autopairs").setup {
-      enable_check_bracket_line = false
-    }
-  end },
+    end,
+    event = "VimEnter"
+  },
+  {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+        enable_check_bracket_line = false
+      }
+    end
+  },
   "mg979/vim-visual-multi",
   {
     "glacambre/firenvim",
     build = function() vim.fn["firenvim#install"](0) end
   },
-  { "L3MON4D3/LuaSnip", ft = filetypes, config = function()
-    require("luasnip.loaders.from_vscode").lazy_load(filetypes)
-  end
+  {
+    "L3MON4D3/LuaSnip",
+    ft = filetypes,
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load(filetypes)
+    end
   },
   "saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
-{"neovim/nvim-lspconfig", config = function()
-  local lspconfig = require("lspconfig")
-  local on_attach = require("Plugin.source.Server")
-  local LSP = { "clangd", "cssls", "pyright", "quick_lint_js", "html" }
-  for _, lsp in ipairs(LSP) do lspconfig[lsp].setup { on_attach = on_attach() } end
-end},
-  { "jose-elias-alvarez/null-ls.nvim",
-    config = require("Plugin.source.null-ls"), },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      local lspconfig = require("lspconfig")
+      local on_attach = require("Plugin.source.Server")
+      local LSP = { "clangd", "cssls", "pyright", "quick_lint_js", "html", "lua_ls" }
+      for _, lsp in ipairs(LSP) do lspconfig[lsp].setup { on_attach = on_attach() } end
+    end
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = require("Plugin.source.null-ls"),
+  },
 }
 
 return Plugins
