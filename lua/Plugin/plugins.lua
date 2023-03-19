@@ -141,7 +141,6 @@ local Plugins = {
   "junegunn/vim-peekaboo",
   "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
-  { "rainbowhxch/beacon.nvim", config = function() require("beacon").setup() end },
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
