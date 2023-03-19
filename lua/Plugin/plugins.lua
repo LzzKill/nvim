@@ -51,7 +51,7 @@ local colorscheme = {
           percentage = 0.15,
         },
         no_italic = false, -- Force no italic
-        no_bold = false, -- Force no bold
+        no_bold = false,   -- Force no bold
         styles = {
           comments = { "italic" },
           conditionals = { "italic" },
@@ -121,24 +121,17 @@ local Plugins = {
   { "akinsho/bufferline.nvim",   event = "BufWinEnter", config = function() require("Plugin.source.BufferLine") end },
   { "nvim-lualine/lualine.nvim", event = "BufWinEnter", config = function() require("Plugin.source.LuaLine") end },
   { "lewis6991/gitsigns.nvim",   event = "BufRead" },
-  { "sindrets/diffview.nvim",    event = "BufWinEnter" },
   { "akinsho/toggleterm.nvim",   event = "Vimenter",    config = function() require("toggleterm").setup() end },
   { "folke/todo-comments.nvim",  event = "BufReadPre",  config = function() require("todo-comments").setup() end },
-  {
-    "numToStr/Comment.nvim",
-    event = "BufReadPre",
-    config = function()
-      require("Comment").setup { toggler = { line = "<space>cc", }, opleader = { line = "<space>c", }, }
-    end
-  },
-  { "ray-x/cmp-treesitter", event = "BufReadPre" },
+  { "numToStr/Comment.nvim",     event = "BufReadPre" },
+  { "ray-x/cmp-treesitter",      event = "BufReadPre" },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "BufReadPre",
     config = function() require("Plugin.source.nvim-treesitter") end
   },
-  { "p00f/nvim-ts-rainbow", event = "BufReadPost", },
+  { "p00f/nvim-ts-rainbow",    event = "BufReadPost", },
   "MunifTanjim/nui.nvim",
   cmp,
   Telescope,
