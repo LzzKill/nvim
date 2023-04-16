@@ -23,5 +23,4 @@ for i, j in pairs(Configs) do
   vim.opt[i] = j
 end
 
-vim.opt.listchars:append"space:⋅"
-
+vim.opt.listchars:append "space:⋅"
