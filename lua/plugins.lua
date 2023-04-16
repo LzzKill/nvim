@@ -1,89 +1,215 @@
-vim.cmd [[packadd packer.nvim]] -- Loader Packer.nvim
+local core_plug = {
+  "folke/lazy.nvim"
+}
 
-return require("packer").startup(
-    {
-        function(use)
-            use "wbthomason/packer.nvim" -- Packer
-            use "nvim-lua/plenary.nvim"
-            use "kyazdani42/nvim-web-devicons"
-
-            use {
-                -- color
-                "folke/tokyonight.nvim",
-                {"catppuccin/nvim", as = "catppuccin"}
-            }
-
-            use {
-                "akinsho/bufferline.nvim",
-                "nvim-lualine/lualine.nvim"
-            }
-            use "windwp/nvim-autopairs" --括号自动补全
-            use {
-                "ap/vim-css-color", -- CSS Color
-                "lukas-reineke/indent-blankline.nvim",
-                "nvim-neo-tree/neo-tree.nvim",
-                "s1n7ax/nvim-window-picker",
-                "MunifTanjim/nui.nvim"
-            }
-            use "dhruvasagar/vim-table-mode"
-            use {
-                "iamcco/mathjax-support-for-mkdp",
-                "iamcco/markdown-preview.nvim",
-                run = function()
-                    vim.fn["mkdp#util#install"]()
-                end
-            }
-            use "Chiel92/vim-autoformat"
-            use "preservim/nerdcommenter"
-            use "junegunn/vim-peekaboo"
-            use {
-                "nvim-telescope/telescope.nvim",
-                tag = "0.1.0"
-            }
-            use {
-                "lewis6991/gitsigns.nvim",
-                "kdheepak/lazygit.nvim"
-            }
-            use "turbio/bracey.vim" --[[预览HTML]]
-            use "mg979/vim-visual-multi"
-            use {
-                "glacambre/firenvim",
-                run = function()
-                    vim.fn["firenvim#install"](0)
-                end
-            }
-            use "ray-x/lsp_signature.nvim"
-            use {
-                {
-                    "nvim-treesitter/nvim-treesitter",
-                    run = ":TSUpdate"
-                },
-                "p00f/nvim-ts-rainbow"
-            }
-            use "neovim/nvim-lspconfig"
-            use {
-                "hrsh7th/nvim-cmp", -- Core
-                "hrsh7th/cmp-nvim-lsp", -- LSP
-                "hrsh7th/cmp-buffer", -- Buffer
-                "hrsh7th/cmp-cmdline", -- CmdLine
-                "saadparwaiz1/cmp_luasnip", -- LuaSnip
-                "ray-x/cmp-treesitter"
-            }
-            use "L3MON4D3/LuaSnip"
-            use "rafamadriz/friendly-snippets"
-            use {
-                "mfussenegger/nvim-dap",
-                "rcarriga/nvim-dap-ui"
-            }
-            use {"glepnir/lspsaga.nvim", branch = "main"} -- Update LSP
-        end,
-        config = {
-            max_jobs = 25,
-            display = {
-                open_fn = function()
-                    return require("packer.util").float({border = "single"})
-                end
-            }
-        }
+local nvim_cmp = {
+  {
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter" },
+    config = function()
+      require("configs.cmp")
+    end,
+    dependencies = {
+      "cmp-nvim-lsp",
+      "cmp_luasnip",
+      "cmp-buffer"
     }
-)
+  },
+  { "hrsh7th/cmp-nvim-lsp",     lazy = true },
+  { "hrsh7th/cmp-buffer",       lazy = true },
+  { "saadparwaiz1/cmp_luasnip", lazy = true },
+}
+
+local nvim_lsp = {
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("configs.lspconfig")
+    end,
+    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css" }
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("configs.null-ls")
+    end,
+    ft = { "json", "py", "javascript", "typescript" }
+  }
+}
+
+local nvim_telescope = {
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "telescope-fzf-native.nvim", "noice", "telescope-ui-select.nvim" },
+    cmd = "Telescope",
+    lazy = true
+  },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+  { "nvim-telescope/telescope-ui-select.nvim",  lazy = true }
+}
+
+local nvim_view = {
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("configs.lualine")
+    end,
+    event = "VimEnter"
+  },
+  {
+    "karb94/neoscroll.nvim",
+    event = "BufWinEnter",
+    config = function()
+      require('neoscroll').setup()
+    end
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    event = "User FileOpened",
+    config = function()
+      require("colorizer").setup()
+    end
+  },
+  {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({ presets = { lsp_doc_border = true } })
+    end,
+    dependencies = { "nui.nvim" }
+  },
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("configs.notify")
+    end,
+    event = "VimEnter"
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "User FileOpened",
+    config = function()
+      require("config.indent_blankline")
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("configs.nvim-treesitter")
+    end,
+    cmd = {
+      "TSInstall",
+      "TSUninstall",
+      "TSUpdate",
+      "TSUpdateSync",
+      "TSInstallInfo",
+      "TSInstallSync",
+      "TSInstallFromGrammar",
+    },
+    event = "User FileOpened",
+    dependencies = { "nvim-ts-rainbow" }
+  },
+  { "p00f/nvim-ts-rainbow", lazy = true },
+  { "MunifTanjim/nui.nvim", lazy = true }
+}
+
+local nvim_theme = {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      require("configs.catppuccin")
+      vim.cmd.colorscheme("catppuccin")
+    end
+  }
+}
+
+local nvim_snip = {
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    config = function()
+      require("configs.luasnip")
+    end,
+    dependencies = { "friendly-snippets" }
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    lazy = true
+  },
+}
+
+local nvim_other = {
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    lazy = true
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("configs.comment").setup()
+    end,
+    keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
+    event = "User FileOpened",
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("configs.nvim-tree")
+    end,
+    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    event = "User DirOpened",
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+    event = "User FileOpened",
+    cmd = "Gitsigns",
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    branch = "main",
+    -- init = function()
+    --   require("lvim.core.terminal").init()
+    -- end,
+    config = function()
+      require("toggleterm").setup()
+    end,
+    cmd = {
+      "ToggleTerm",
+      "TermExec",
+      "ToggleTermToggleAll",
+      "ToggleTermSendCurrentLine",
+      "ToggleTermSendVisualLines",
+      "ToggleTermSendVisualSelection",
+    },
+  },
+}
+
+local nvim_lib = {
+  { "kyazdani42/nvim-web-devicons", lazy = true, },
+  { "junegunn/vim-peekaboo",        event = "BufWinEnter" },
+  { "nvim-lua/plenary.nvim",        lazy = true },
+  { "folke/neodev.nvim",            lazy = true }
+}
+
+local plugins = {
+  core_plug,
+  nvim_cmp,
+  nvim_lsp,
+  nvim_telescope,
+  nvim_view,
+  nvim_theme,
+  -- nvim_dap,
+  nvim_snip,
+  nvim_other,
+  nvim_lib
+}
+
+return plugins
