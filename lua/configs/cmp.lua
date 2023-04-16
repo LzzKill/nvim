@@ -1,6 +1,6 @@
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local resource = require("Plugin.resource")
+local resource = require("resource")
 
 cmp.setup({
   formatting = {
