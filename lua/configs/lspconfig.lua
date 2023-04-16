@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
-local LSP = { "clangd", "cssls", "pyright", "html" }
+local LSP = { "clangd", "cssls", "pyright", "html"}
 for _, lsp in ipairs(LSP) do
   lspconfig[lsp].setup(
     {
@@ -27,14 +27,16 @@ for _, lsp in ipairs(LSP) do
 end
 
 -- lua lsp
-lspconfig["lua-ls"].setup({
-  on_attach = on_attach(),
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
+lspconfig["lua_ls"].setup(
+  {
+    on_attach = on_attach(),
+    settings = {
+      Lua = {
+        completion = {
+          callSnippet = "Replace"
+        }
       }
     }
   }
-})
+)
 

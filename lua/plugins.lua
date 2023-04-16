@@ -26,7 +26,7 @@ local nvim_lsp = {
     config = function()
       require("configs.lspconfig")
     end,
-    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css" }
+    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css", "lua" }
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
