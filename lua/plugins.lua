@@ -157,11 +157,11 @@ local nvim_other = {
     event = "User FileOpened",
   },
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     config = function()
-      require("configs.nvim-tree")
+      require("configs.neo-tree")
     end,
-    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    cmd = { "Neotree", "NoetreeFocus", "NeoTreeClose", "NeotreeShow" },
     event = "User DirOpened",
   },
   {
@@ -196,7 +196,6 @@ local nvim_lib = {
   { "kyazdani42/nvim-web-devicons", lazy = true, },
   { "junegunn/vim-peekaboo",        event = "BufWinEnter" },
   { "nvim-lua/plenary.nvim",        lazy = true },
-  { "folke/neodev.nvim",            lazy = true }
 }
 
 local plugins = {
