@@ -114,7 +114,7 @@ local display = {
       "TSInstallFromGrammar",
     },
     event = "BufEnter",
-    dependencies = { "nvim-ts-rainbow2", "nvim-ts-context-commentstring", "vim-matchup" }
+    dependencies = { "nvim-ts-rainbow2", "vim-matchup" }
   },
   {
     'andymass/vim-matchup',
