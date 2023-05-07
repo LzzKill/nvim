@@ -177,9 +177,7 @@ local tool = {
   },
   {
     "numToStr/Comment.nvim",
-    config = function()
-      require("configs.comment").setup()
-    end,
+    config = true,
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
     event = "User FileOpened",
   },
