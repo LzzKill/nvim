@@ -1,32 +1,35 @@
-local core_plug = {
-  "folke/lazy.nvim"
-}
+local lazy = "folke/lazy.nvim"
 
-local nvim_cmp = {
+local completion = {
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter" },
     config = function()
       require("configs.cmp")
     end,
-    dependencies = {
-      "cmp-nvim-lsp",
-      "cmp_luasnip",
-      "cmp-buffer"
-    }
+    dependencies = { "cmp-nvim-lsp", "cmp_luasnip", "cmp-buffer" }
   },
-  { "hrsh7th/cmp-nvim-lsp",     lazy = true },
-  { "hrsh7th/cmp-buffer",       lazy = true },
-  { "saadparwaiz1/cmp_luasnip", lazy = true },
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    config = function()
+      require("configs.luasnip")
+    end,
+    dependencies = { "friendly-snippets" }
+  },
+  { "rafamadriz/friendly-snippets", lazy = true },
+  { "hrsh7th/cmp-nvim-lsp",         lazy = true },
+  { "hrsh7th/cmp-buffer",           lazy = true },
+  { "saadparwaiz1/cmp_luasnip",     lazy = true },
 }
 
-local nvim_lsp = {
+local lsp = {
   {
     "neovim/nvim-lspconfig",
     config = function()
       require("configs.lspconfig")
     end,
-    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css" }
+    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css", "lua" }
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -48,13 +51,13 @@ local nvim_telescope = {
   { "nvim-telescope/telescope-ui-select.nvim",  lazy = true }
 }
 
-local nvim_view = {
+local display = {
   {
-    "nvim-lualine/lualine.nvim",
+    "folke/noice.nvim",
     config = function()
-      require("configs.lualine")
+      require("noice").setup({ presets = { lsp_doc_border = true } })
     end,
-    event = "VimEnter"
+    dependencies = { "nui.nvim" }
   },
   {
     "karb94/neoscroll.nvim",
@@ -64,6 +67,11 @@ local nvim_view = {
     end
   },
   {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     event = "User FileOpened",
     config = function()
@@ -71,11 +79,11 @@ local nvim_view = {
     end
   },
   {
-    "folke/noice.nvim",
+    "nvim-lualine/lualine.nvim",
     config = function()
-      require("noice").setup({ presets = { lsp_doc_border = true } })
+      require("configs.lualine")
     end,
-    dependencies = { "nui.nvim" }
+    event = "VimEnter"
   },
   {
     "rcarriga/nvim-notify",
@@ -105,14 +113,23 @@ local nvim_view = {
       "TSInstallSync",
       "TSInstallFromGrammar",
     },
-    event = "User FileOpened",
-    dependencies = { "nvim-ts-rainbow" }
+    event = "BufEnter",
+    dependencies = { "nvim-ts-rainbow2", "vim-matchup" }
   },
-  { "p00f/nvim-ts-rainbow", lazy = true },
-  { "MunifTanjim/nui.nvim", lazy = true }
+  {
+    'andymass/vim-matchup',
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+    lazy = true
+  },
+  { "junegunn/vim-peekaboo",        event = "BufWinEnter" },
+  { "HiPhish/nvim-ts-rainbow2",     lazy = true },
+  { "MunifTanjim/nui.nvim",         lazy = true },
+  { "kyazdani42/nvim-web-devicons", lazy = true, },
 }
 
-local nvim_theme = {
+local theme = {
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -123,22 +140,32 @@ local nvim_theme = {
   }
 }
 
-local nvim_snip = {
+local markdown = {
   {
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
+    "dhruvasagar/vim-table-mode",
     config = function()
-      require("configs.luasnip")
+      require("configs.vim_table_mode")
     end,
-    dependencies = { "friendly-snippets" }
+    ft = "markdown"
   },
   {
-    "rafamadriz/friendly-snippets",
-    lazy = true
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    config = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = "markdown",
   },
 }
 
-local nvim_other = {
+local tool = {
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -150,18 +177,16 @@ local nvim_other = {
   },
   {
     "numToStr/Comment.nvim",
-    config = function()
-      require("configs.comment").setup()
-    end,
+    config = true,
     keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
     event = "User FileOpened",
   },
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     config = function()
-      require("configs.nvim-tree")
+      require("configs.neo-tree")
     end,
-    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+    cmd = { "Neotree", "NoetreeFocus", "NeoTreeClose", "NeotreeShow" },
     event = "User DirOpened",
   },
   {
@@ -175,9 +200,6 @@ local nvim_other = {
   {
     "akinsho/toggleterm.nvim",
     branch = "main",
-    -- init = function()
-    --   require("lvim.core.terminal").init()
-    -- end,
     config = function()
       require("toggleterm").setup()
     end,
@@ -190,26 +212,18 @@ local nvim_other = {
       "ToggleTermSendVisualSelection",
     },
   },
-}
-
-local nvim_lib = {
-  { "kyazdani42/nvim-web-devicons", lazy = true, },
-  { "junegunn/vim-peekaboo",        event = "BufWinEnter" },
-  { "nvim-lua/plenary.nvim",        lazy = true },
-  { "folke/neodev.nvim",            lazy = true }
+  { "nvim-lua/plenary.nvim", lazy = true },
 }
 
 local plugins = {
-  core_plug,
-  nvim_cmp,
-  nvim_lsp,
+  lazy,
+  completion,
+  lsp,
   nvim_telescope,
-  nvim_view,
-  nvim_theme,
-  -- nvim_dap,
-  nvim_snip,
-  nvim_other,
-  nvim_lib
+  display,
+  theme,
+  tool,
+  markdown
 }
 
 return plugins

@@ -8,9 +8,9 @@ require("catppuccin").setup({
   integrations = {
     cmp = true,
     gitsigns = true,
-    nvimtree = true,
     telescope = true,
     notify = true,
-    noice = true
+    noice = true,
+    neotree = true
   },
 })

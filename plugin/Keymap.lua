@@ -10,7 +10,7 @@ local Map = {
   { "<space>q",  "<cmd>q<cr>" },
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
-  { "<space>e",  "<cmd>NvimTreeToggle<cr>" },
+  { "<space>e",  "<cmd>Neotree<cr>" },
   { "<space>E",  vim.diagnostic.open_float },
 }
 local opt = { noremap = true, silent = true }
