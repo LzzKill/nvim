@@ -5,6 +5,7 @@ require("neo-tree").setup({
     width = 35,
     mappings = {
       ["v"] = "open_vsplit",
+      ["s"] = "open_split",
       ["l"] = "open",
       ["h"] = "close_node",
     }
