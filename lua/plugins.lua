@@ -67,6 +67,11 @@ local display = {
     end
   },
   {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
+  {
     "norcalli/nvim-colorizer.lua",
     event = "User FileOpened",
     config = function()
@@ -109,10 +114,17 @@ local display = {
       "TSInstallFromGrammar",
     },
     event = "BufEnter",
-    dependencies = { "nvim-ts-rainbow" }
+    dependencies = { "nvim-ts-rainbow2", "nvim-ts-context-commentstring", "vim-matchup" }
+  },
+  {
+    'andymass/vim-matchup',
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+    lazy = true
   },
   { "junegunn/vim-peekaboo",        event = "BufWinEnter" },
-  { "p00f/nvim-ts-rainbow",         lazy = true },
+  { "HiPhish/nvim-ts-rainbow2",     lazy = true },
   { "MunifTanjim/nui.nvim",         lazy = true },
   { "kyazdani42/nvim-web-devicons", lazy = true, },
 }
@@ -129,11 +141,13 @@ local theme = {
 }
 
 local markdown = {
-  { "dhruvasagar/vim-table-mode",
-  config = function()
-    require("configs.vim_table_mode")
-  end,
-  ft = "markdown" },
+  {
+    "dhruvasagar/vim-table-mode",
+    config = function()
+      require("configs.vim_table_mode")
+    end,
+    ft = "markdown"
+  },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
@@ -145,6 +159,13 @@ local markdown = {
 }
 
 local tool = {
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
