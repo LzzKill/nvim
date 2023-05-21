@@ -4,7 +4,7 @@ local Map = {
   { "<A-[>",     vim.diagnostic.goto_prev },
   { "<A-]>",     vim.diagnostic.goto_next },
   { "<leader>L", "<cmd>Lazy<cr>" },
-  { "<leader>t", "<cmd>Telescope<cr>" },
+  { "<leader>T", "<cmd>Telescope<cr>" },
   { "<leader>q", vim.diagnostic.setloclist },
   { "<space>w",  "<cmd>w<cr>" },
   { "<space>q",  "<cmd>q<cr>" },

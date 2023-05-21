@@ -9,6 +9,6 @@ require "nvim-treesitter.configs".setup({
     strategy = require('ts-rainbow').strategy.global,
   },
   matchup = {
-    enable = true,              -- mandatory, false will disable the whole extension
+    enable = true,
   },
 })

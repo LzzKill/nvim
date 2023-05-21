@@ -2,14 +2,6 @@ local lazy = "folke/lazy.nvim"
 
 local completion = {
   {
-    "hrsh7th/nvim-cmp",
-    event = { "InsertEnter" },
-    config = function()
-      require("configs.cmp")
-    end,
-    dependencies = { "cmp-nvim-lsp", "cmp_luasnip", "cmp-buffer" }
-  },
-  {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
     config = function()
@@ -17,10 +9,6 @@ local completion = {
     end,
     dependencies = { "friendly-snippets" }
   },
-  { "rafamadriz/friendly-snippets", lazy = true },
-  { "hrsh7th/cmp-nvim-lsp",         lazy = true },
-  { "hrsh7th/cmp-buffer",           lazy = true },
-  { "saadparwaiz1/cmp_luasnip",     lazy = true },
 }
 
 local lsp = {
@@ -29,7 +17,6 @@ local lsp = {
     config = function()
       require("configs.lspconfig")
     end,
-    ft = { "c", "cpp", "py", "h", "hpp", "markdown", "html", "css", "lua" }
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -59,25 +46,8 @@ local display = {
     end,
     dependencies = { "nui.nvim" }
   },
-  {
-    "karb94/neoscroll.nvim",
-    event = "BufWinEnter",
-    config = function()
-      require('neoscroll').setup()
-    end
-  },
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    config = true,
-    event = { "WinNew" },
-  },
-  {
-    "norcalli/nvim-colorizer.lua",
-    event = "User FileOpened",
-    config = function()
-      require("colorizer").setup()
-    end
-  },
+  { "karb94/neoscroll.nvim",        event = "BufWinEnter",     config = true },
+  { "norcalli/nvim-colorizer.lua",  event = "User FileOpen", config = true, },
   {
     "nvim-lualine/lualine.nvim",
     config = function()
@@ -94,28 +64,29 @@ local display = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "User FileOpened",
+    event = "User FileOpen",
     config = function()
       require("config.indent_blankline")
     end
   },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("configs.nvim-treesitter")
-    end,
-    cmd = {
-      "TSInstall",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSInstallFromGrammar",
-    },
-    event = "BufEnter",
-    dependencies = { "nvim-ts-rainbow2", "vim-matchup" }
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   config = function()
+  --     require("configs.nvim-treesitter")
+  --   end,
+  --   cmd = {
+  --     "TSInstall",
+  --     "TSUninstall",
+  --     "TSUpdate",
+  --     "TSUpdateSync",
+  --     "TSInstallInfo",
+  --     "TSInstallSync",
+  --     "TSInstallFromGrammar",
+  --   },
+  --   event = "BufEnter",
+  --   dependencies = { "nvim-ts-rainbow2", "vim-matchup" },
+  --   enable = false
+  -- },
   {
     'andymass/vim-matchup',
     config = function()
@@ -127,17 +98,6 @@ local display = {
   { "HiPhish/nvim-ts-rainbow2",     lazy = true },
   { "MunifTanjim/nui.nvim",         lazy = true },
   { "kyazdani42/nvim-web-devicons", lazy = true, },
-}
-
-local theme = {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    config = function()
-      require("configs.catppuccin")
-      vim.cmd.colorscheme("catppuccin")
-    end
-  }
 }
 
 local markdown = {
@@ -172,7 +132,7 @@ local tool = {
     config = function()
       require("nvim-autopairs").setup()
     end,
-    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    dependencies = {"hrsh7th/nvim-cmp" },
     lazy = true
   },
   {
@@ -200,9 +160,7 @@ local tool = {
   {
     "akinsho/toggleterm.nvim",
     branch = "main",
-    config = function()
-      require("toggleterm").setup()
-    end,
+    config = true,
     cmd = {
       "ToggleTerm",
       "TermExec",
@@ -216,12 +174,14 @@ local tool = {
 }
 
 local plugins = {
+  require("configs.cmp"),
   lazy,
+
   completion,
   lsp,
   nvim_telescope,
   display,
-  theme,
+  require("configs.catppuccin"),
   tool,
   markdown
 }
