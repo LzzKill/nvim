@@ -113,8 +113,19 @@ local tool = {
   { "windwp/nvim-autopairs",    event = "InsertEnter", config = true },
   {
     "numToStr/Comment.nvim",
-    config = true,
-    keys = { { "gc", mode = { "n", "v" } }, { "gb", mode = { "n", "v" } } },
+    config = function()
+      require("Comment").setup({
+        toggler = {
+          line = "<space>cc",
+          block = "<space>bc"
+        },
+        opleader = {
+          line = "<space>c",
+          block = "<space>b"
+        }
+      })
+    end,
+    event = "VeryLazy"
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -122,6 +133,7 @@ local tool = {
       require("configs.neo-tree")
     end,
     cmd = { "Neotree", "NoetreeFocus", "NeoTreeClose", "NeotreeShow" },
+    key = {"<A-f>"},
     event = "User DirOpened",
   },
   { "lewis6991/gitsigns.nvim", config = true, event = "UIEnter", cmd = "Gitsigns", },
