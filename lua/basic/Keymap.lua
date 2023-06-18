@@ -3,14 +3,14 @@ local Map = {
   { "U",         "<C-r>" },
   { "<A-[>",     vim.diagnostic.goto_prev },
   { "<A-]>",     vim.diagnostic.goto_next },
-  { "<C-x>",     "<cmd>Lazy<cr>" },
-  { "<leader>t",     "<cmd>Telescope<cr>" },
+  { "<leader>l",     "<cmd>Lazy<cr>" },
+  { "<leader>t", "<cmd>Telescope<cr>" },
   { "<leader>q", vim.diagnostic.setloclist },
   { "<space>w",  "<cmd>w<cr>" },
   { "<space>q",  "<cmd>q<cr>" },
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
-  { "<A-f>",  "<cmd>Neotree<cr>" },
+  { "<A-f>",     "<cmd>Neotree<cr>" },
   { "<space>E",  vim.diagnostic.open_float },
 }
 local opt = { noremap = true, silent = true }
