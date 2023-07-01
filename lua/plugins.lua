@@ -62,7 +62,6 @@ local display = {
       "TSInstallFromGrammar",
     },
     event = "VeryLazy",
-    dependencies = { "vim-matchup" },
     enable = false
   },
   { "MunifTanjim/nui.nvim",         lazy = true },
