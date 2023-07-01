@@ -45,25 +45,7 @@ local display = {
   {
     "shellRaining/hlchunk.nvim",
     event = "UIEnter",
-    config = function()
-      require('hlchunk').setup({
-        -- indent = {
-        --   chars = { "│", "¦", "┆", "┊", },
-        --   style = { "#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF", "#8B00FF", },
-        -- },
-        -- chunk = {
-        --   use_treesitter = true,
-        --   chars = {
-        --     horizontal_line = "─",
-        --     vertical_line = "│",
-        --     left_top = "┌",
-        --     left_bottom = "└",
-        --     right_arrow = "─",
-        --   },
-        --   style = "#00ffff",
-        -- },
-      })
-    end
+    config = true
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -85,7 +67,6 @@ local display = {
   },
   { "MunifTanjim/nui.nvim",         lazy = true },
   { "kyazdani42/nvim-web-devicons", lazy = true, },
-  { 'andymass/vim-matchup',         event = "VeryLazy", lazy = true },
   { "junegunn/vim-peekaboo",        event = "VeryLazy" },
 }
 
