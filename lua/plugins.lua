@@ -12,8 +12,8 @@ local completion = {
 }
 
 local lsp = {
-  { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end, event = "VeryLazy" },
-  { "jose-elias-alvarez/null-ls.nvim", config = function() require("configs.null-ls") end,   event = "VeryLazy" }
+  { "jose-elias-alvarez/null-ls.nvim", event = "VeryLazy", config = require("configs.null-ls"), },
+  { "neovim/nvim-lspconfig",           event = "VeryLazy", config = function() require("configs.lspconfig") end }
 }
 
 local display = {
@@ -113,7 +113,7 @@ local tool = {
       require("configs.neo-tree")
     end,
     cmd = { "Neotree", "NoetreeFocus", "NeoTreeClose", "NeotreeShow" },
-    key = {"<A-f>"},
+    key = { "<A-f>" },
     event = "User DirOpened",
   },
   { "lewis6991/gitsigns.nvim", config = true, event = "UIEnter", cmd = "Gitsigns", },
