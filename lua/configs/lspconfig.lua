@@ -1,6 +1,6 @@
 local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
-  map = vim.keymap.set
+  local map = vim.keymap.set
   map("n", "<space>l", vim.lsp.buf.declaration, opts)
   map("n", "<space>ld", vim.lsp.buf.definition, opts)
   map("n", "<space>lk", vim.lsp.buf.hover, opts)
