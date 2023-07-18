@@ -12,8 +12,8 @@ local completion = {
 }
 
 local lsp = {
-  { "jose-elias-alvarez/null-ls.nvim", event = "VeryLazy", config = require("configs.null-ls"), },
-  { "neovim/nvim-lspconfig",           event = "VeryLazy", config = function() require("configs.lspconfig") end }
+  { "jose-elias-alvarez/null-ls.nvim", config = require("configs.null-ls"), },
+  { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end }
 }
 
 local display = {
