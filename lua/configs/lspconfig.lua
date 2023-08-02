@@ -1,11 +1,11 @@
 local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
-  map = vim.keymap.set
-  map("n", "<space>l", vim.lsp.buf.declaration, opts)
+  local map = vim.keymap.set
+  map("n", "<space>ll", vim.lsp.buf.declaration, opts)
   map("n", "<space>ld", vim.lsp.buf.definition, opts)
   map("n", "<space>lk", vim.lsp.buf.hover, opts)
   map("n", "<space>gi", vim.lsp.buf.implementation, opts)
-  map("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+  map("n", "<leader>lk", vim.lsp.buf.signature_help, opts)
   map("n", "<leader>Wa", vim.lsp.buf.add_workspace_folder, opts)
   map("n", "<leader>Wr", vim.lsp.buf.remove_workspace_folder, opts)
   map("n", "<leader>WL", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
@@ -21,7 +21,8 @@ local LSP = { "clangd", "cssls", "pyright", "html", "lua_ls" }
 for _, lsp in ipairs(LSP) do
   lspconfig[lsp].setup(
     {
-      on_attach = on_attach()
+      on_attach = on_attach(),
+      offset_encoding = "utf-8",
     }
   )
 end

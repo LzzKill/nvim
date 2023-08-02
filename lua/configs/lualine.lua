@@ -1,4 +1,4 @@
-local noice = require "noice"
+local noice = require("noice")
 require("lualine").setup({
   options = {
     icons_enabled = true,

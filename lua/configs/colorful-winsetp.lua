@@ -1,0 +1,5 @@
+require("colorful-winsep").setup(
+  {
+
+  }
+)

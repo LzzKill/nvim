@@ -1,9 +1,8 @@
 local Map = {
-  { ";",         ":",                      "n", {} },
   { "U",         "<C-r>" },
-  { "<A-[>",     vim.diagnostic.goto_prev },
-  { "<A-]>",     vim.diagnostic.goto_next },
-  { "<leader>L", "<cmd>Lazy<cr>" },
+  { "<leader>[",     vim.diagnostic.goto_prev },
+  { "<leader>]",     vim.diagnostic.goto_next },
+  { "<leader>l", "<cmd>Lazy<cr>" },
   { "<leader>t", "<cmd>Telescope<cr>" },
   { "<leader>q", vim.diagnostic.setloclist },
   { "<space>w",  "<cmd>w<cr>" },
@@ -11,14 +10,15 @@ local Map = {
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
   { "<space>e",  "<cmd>Neotree<cr>" },
-  { "<space>E",  vim.diagnostic.open_float },
+  { "<space>lp",  vim.diagnostic.open_float },
 }
+
 local opt = { noremap = true, silent = true }
+local mode = "n"
 
 for _, m in ipairs(Map) do
-  local n = "n"
-  local o = opt
-  if m[3] then n = m[3] end
-  if m[4] then o = m[4] end
-  vim.keymap.set(n, m[1], m[2], o)
+  if not m[3] then m[3] = mode end
+  if not m[4] then m[4] = opt end
+
+  vim.keymap.set(m[3], m[1], m[2], m[4])
 end
