@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require("lspconfig")
-local LSP = { "clangd", "cssls", "pyright", "html", "lua_ls" }
+local LSP = { "clangd", "cssls", "pyright", "html", "lua_ls" , "tsserver"}
 for _, lsp in ipairs(LSP) do
   lspconfig[lsp].setup(
     {
