@@ -1,7 +1,6 @@
 require("toggleterm").setup({
   -- size can be a number or function which is passed the current terminal
   size = 20,
-  open_mapping = "<space>t",
   direction = "float",
   close_on_exit = true, -- close the terminal window when the process exits
    -- Change the default shell. Can be a string or a function returning a string

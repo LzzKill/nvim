@@ -1,7 +1,7 @@
 local Map = {
   { "U",         "<C-r>" },
-  { "<leader>[",     vim.diagnostic.goto_prev },
-  { "<leader>]",     vim.diagnostic.goto_next },
+  { "<leader>[", vim.diagnostic.goto_prev },
+  { "<leader>]", vim.diagnostic.goto_next },
   { "<leader>l", "<cmd>Lazy<cr>" },
   { "<leader>t", "<cmd>Telescope<cr>" },
   { "<leader>q", vim.diagnostic.setloclist },
@@ -10,7 +10,8 @@ local Map = {
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
   { "<space>e",  "<cmd>Neotree<cr>" },
-  { "<space>lp",  vim.diagnostic.open_float },
+  { "<space>lp", vim.diagnostic.open_float },
+  { "<space>t",  "<cmd>ToggleTerm<cr>" }
 }
 
 local opt = { noremap = true, silent = true }
