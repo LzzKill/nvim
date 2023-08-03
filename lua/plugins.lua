@@ -129,6 +129,7 @@ local tool = {
       "ToggleTermSendVisualLines",
       "ToggleTermSendVisualSelection",
     },
+    config = function() require("configs.toggleterm") end,
   },
   { "nvim-lua/plenary.nvim",   lazy = true },
 }
