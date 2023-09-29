@@ -1,51 +1,17 @@
-local lazy = "folke/lazy.nvim"
-
-local completion = {
-  {
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
-    config = function()
-      require("configs.luasnip")
-    end,
-    dependencies = { "friendly-snippets" }
-  },
-}
-
-local lsp = {
-  { "jose-elias-alvarez/null-ls.nvim", config = require("configs.null-ls"), },
-  { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end }
-}
-
 local display = {
   {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({ presets = { lsp_doc_border = true } })
     end,
-    dependencies = { "nui.nvim" },
-    event = "UILeave"
   },
-  { "karb94/neoscroll.nvim",       event = "UIEnter",  config = true },
-  { "norcalli/nvim-colorizer.lua", event = "VeryLazy", config = true, },
   {
     "nvim-lualine/lualine.nvim",
-    config = function()
-      require("configs.lualine")
-    end,
-    event = "UIEnter"
+    config = function() require("configs.lualine") end,
   },
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require("configs.notify")
-    end,
-    event = "UIEnter",
-    lazy = true
-  },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = "UIEnter",
-    config = true
+    config = function() require("configs.notify") end
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -62,11 +28,26 @@ local display = {
       "TSInstallFromGrammar",
     },
     event = "VeryLazy",
-    enable = false
   },
-  { "MunifTanjim/nui.nvim",         lazy = true },
-  { "kyazdani42/nvim-web-devicons", lazy = true, },
-  { "junegunn/vim-peekaboo",        event = "VeryLazy" },
+  {
+    "shellRaining/hlchunk.nvim",
+    config = function()
+      require("hlchunk").setup({
+        indent = {
+          chars = {
+            "│",
+          },
+          style = {
+            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+          },
+        }
+      })
+    end
+  },
+  { "MunifTanjim/nui.nvim" },
+  { "kyazdani42/nvim-web-devicons" },
+  { "junegunn/vim-peekaboo",       event = "VeryLazy" },
+  { "karb94/neoscroll.nvim",       event = "BufEnter", config = true },
 }
 
 local markdown = {
@@ -105,7 +86,7 @@ local tool = {
         }
       })
     end,
-    event = "VeryLazy"
+    key = { "<space>c", "<space>b" }
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -116,11 +97,10 @@ local tool = {
     key = { "<A-f>" },
     event = "User DirOpened",
   },
-  { "lewis6991/gitsigns.nvim", config = true, event = "UIEnter", cmd = "Gitsigns", },
+  { "lewis6991/gitsigns.nvim", config = true, event = "VeryLazy", cmd = "Gitsigns", },
   {
     "akinsho/toggleterm.nvim",
     branch = "main",
-    config = true,
     cmd = {
       "ToggleTerm",
       "TermExec",
@@ -129,20 +109,19 @@ local tool = {
       "ToggleTermSendVisualLines",
       "ToggleTermSendVisualSelection",
     },
+    config = function() require("configs.toggleterm") end,
   },
   { "nvim-lua/plenary.nvim",   lazy = true },
 }
 
-local plugins = {
+return {
+  "folke/lazy.nvim",
   require("configs.cmp"),
-  lazy,
-  completion,
-  lsp,
+  { "jose-elias-alvarez/null-ls.nvim", config = require("configs.null-ls"), },
+  { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end },
   require("configs.nvim-telescope"),
   display,
   require("configs.catppuccin"),
   tool,
   markdown
 }
-
-return plugins

@@ -1,6 +1,14 @@
 local resource = require("resource")
 return {
   {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    config = function()
+      require("configs.luasnip")
+    end,
+    dependencies = { "friendly-snippets" }
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter" },
     config = function()
