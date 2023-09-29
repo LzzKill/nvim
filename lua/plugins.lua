@@ -29,11 +29,25 @@ local display = {
     },
     event = "VeryLazy",
   },
-  { "shellRaining/hlchunk.nvim",    config = true },
+  {
+    "shellRaining/hlchunk.nvim",
+    config = function()
+      require("hlchunk").setup({
+        indent = {
+          chars = {
+            "│",
+          },
+          style = {
+            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+          },
+        }
+      })
+    end
+  },
   { "MunifTanjim/nui.nvim" },
-  { "kyazdani42/nvim-web-devicons"},
-  { "junegunn/vim-peekaboo",        event = "VeryLazy" },
-  { "karb94/neoscroll.nvim",        event = "BufEnter", config = true },
+  { "kyazdani42/nvim-web-devicons" },
+  { "junegunn/vim-peekaboo",       event = "VeryLazy" },
+  { "karb94/neoscroll.nvim",       event = "BufEnter", config = true },
 }
 
 local markdown = {
