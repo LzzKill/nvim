@@ -42,7 +42,8 @@ local display = {
           },
         }
       })
-    end
+    end,
+    event = { "UIEnter" }
   },
   { "MunifTanjim/nui.nvim" },
   { "kyazdani42/nvim-web-devicons" },
