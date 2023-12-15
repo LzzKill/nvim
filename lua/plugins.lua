@@ -70,8 +70,7 @@ local markdown = {
 }
 
 local tool = {
-  { "folke/todo-comments.nvim", event = "VeryLazy",    config = true, },
-  { "kylechui/nvim-surround",   event = "VeryLazy",    config = true },
+  { "folke/todo-comments.nvim", event = "BufEnter",    config = true, },
   { "windwp/nvim-autopairs",    event = "InsertEnter", config = true },
   {
     "numToStr/Comment.nvim",
@@ -118,7 +117,7 @@ local tool = {
 return {
   "folke/lazy.nvim",
   require("configs.cmp"),
-  { "jose-elias-alvarez/null-ls.nvim", config = require("configs.null-ls"), },
+  { "nvimtools/none-ls.nvim", config = require("configs.none-ls"), },
   { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end },
   require("configs.nvim-telescope"),
   display,
