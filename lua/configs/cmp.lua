@@ -4,9 +4,10 @@ return {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
     config = function()
-      require("configs.luasnip")
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
-    dependencies = { "friendly-snippets" }
+    dependencies = { "friendly-snippets" },
+    build = "make install_jsregexp"
   },
   {
     "hrsh7th/nvim-cmp",
