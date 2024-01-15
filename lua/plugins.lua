@@ -32,16 +32,7 @@ local display = {
   {
     "shellRaining/hlchunk.nvim",
     config = function()
-      require("hlchunk").setup({
-        indent = {
-          chars = {
-            "│",
-          },
-          style = {
-            vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
-          },
-        }
-      })
+      require("hlchunk").setup({})
     end,
     event = { "UIEnter" }
   },
@@ -70,6 +61,26 @@ local markdown = {
 }
 
 local tool = {
+  {
+    'mg979/vim-visual-multi',
+    branch = 'master'
+  },
+  {
+    "folke/neodev.nvim",
+    opts = {},
+    config = function()
+      require("neodev").setup({})
+      require('lspconfig').lua_ls.setup({
+        settings = {
+          Lua = {
+            comletion = {
+              callSnippet = "Replace"
+            }
+          }
+        }
+      })
+    end
+  },
   { "folke/todo-comments.nvim", event = "BufEnter",    config = true, },
   { "windwp/nvim-autopairs",    event = "InsertEnter", config = true },
   {
@@ -118,7 +129,7 @@ return {
   "folke/lazy.nvim",
   require("configs.cmp"),
   { "nvimtools/none-ls.nvim", config = require("configs.none-ls"), },
-  { "neovim/nvim-lspconfig",           config = function() require("configs.lspconfig") end },
+  { "neovim/nvim-lspconfig",  config = function() require("configs.lspconfig") end },
   require("configs.nvim-telescope"),
   display,
   require("configs.catppuccin"),
