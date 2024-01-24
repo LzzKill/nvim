@@ -1,5 +1,9 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if _G.loader_lazy then
+  return
+end
+local lazypath = require("utils.constant").lazypath
 vim.opt.runtimepath:prepend(lazypath)
+_G.loadlazy = true
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -18,3 +22,5 @@ require("lazy").setup("plugins", {
   },
 }
 )
+
+_G.loader_lazy = true
