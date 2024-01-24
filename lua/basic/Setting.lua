@@ -24,3 +24,5 @@ for i, j in pairs(Configs) do
 end
 
 vim.opt.listchars:append "space:⋅"
+
+_G.loader_lazy = false

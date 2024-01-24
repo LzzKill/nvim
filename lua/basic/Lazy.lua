@@ -1,3 +1,6 @@
+if _G.loader_lazy then
+  return
+end
 local lazypath = require("utils.constant").lazypath
 vim.opt.runtimepath:prepend(lazypath)
 _G.loadlazy = true
@@ -19,3 +22,5 @@ require("lazy").setup("plugins", {
   },
 }
 )
+
+_G.loader_lazy = true

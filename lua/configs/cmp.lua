@@ -1,4 +1,4 @@
-local resource = require("resource")
+local resource = require("utils.constant")
 return {
   {
     "L3MON4D3/LuaSnip",

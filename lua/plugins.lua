@@ -31,9 +31,7 @@ local display = {
   },
   {
     "shellRaining/hlchunk.nvim",
-    config = function()
-      require("hlchunk").setup({})
-    end,
+    config = true,
     event = { "UIEnter" }
   },
   { "MunifTanjim/nui.nvim" },
@@ -129,7 +127,7 @@ return {
   "folke/lazy.nvim",
   require("configs.cmp"),
   { "nvimtools/none-ls.nvim", config = require("configs.none-ls"), },
-  { "neovim/nvim-lspconfig",  config = function() require("configs.lspconfig") end },
+  { "neovim/nvim-lspconfig"},
   require("configs.nvim-telescope"),
   display,
   require("configs.catppuccin"),
