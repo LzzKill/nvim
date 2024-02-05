@@ -1,6 +1,8 @@
 local logger = require("utils.logger")
 local lspconfig = require("lspconfig")
 
+local lspregister = {}
+
 local on_attach_build = function(LSPOption)
   return function(client, bufnr)
     local opts = LSPOption and LSPOption.mapopt or { noremap = true, silent = true, buffer = bufnr }
@@ -19,9 +21,6 @@ local on_attach_build = function(LSPOption)
     map("n", "<leader>lc", vim.lsp.buf.code_action, opts)
     map("n", "gr", vim.lsp.buf.references, opts)
     map("n", "<space>lf", function() vim.lsp.buf.format { async = true } end, opts)
-
-    -- Set the LSP client for the buffer directly
-    vim.lsp.buf_set_client(bufnr, client.id)
   end
 end
 
@@ -41,10 +40,10 @@ end
 ---@param LSPName string
 ---@param LSPOption table?
 return function(LSPName, LSPOption)
-  if vim.lsp.get_active_clients()[LSPName] then
+  if lspregister[LSPName] then
     return
   end
-
+  lspregister[LSPName] = true
   vim.validate({ LSPName = { LSPName, "string" } })
 
   if launch(LSPName, LSPOption) then
