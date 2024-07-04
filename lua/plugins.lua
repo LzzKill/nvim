@@ -2,7 +2,7 @@ local display = {
   {
     "folke/noice.nvim",
     config = function()
-      require("noice").setup({ presets = { lsp_doc_border = true } })
+      require("configs.noice")
     end,
   },
   {
