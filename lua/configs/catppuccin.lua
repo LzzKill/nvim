@@ -3,12 +3,12 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "frappe",
+      flavour = "mocha",
       background = {
         light = "latte",
-        dark = "frappe",
+        dark = "mocha",
       },
-      transparent_background = true,
+      transparent_background = false,
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -18,6 +18,5 @@ return {
         neotree = true
       },
     })
-    vim.cmd.colorscheme("catppuccin")
   end
 }

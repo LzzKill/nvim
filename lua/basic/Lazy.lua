@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
-require("lazy").setup("plugins", {
+require("lazy").setup("limit.plugins", {
   ui = {
     border = "rounded",
   },

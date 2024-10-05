@@ -1,0 +1,20 @@
+vim.opt.termguicolors = true  --真彩色
+vim.opt.tabstop = 2           --tab显示宽度
+-- vim.opt.expandtab = true     -- tab输入变空格
+vim.opt.laststatus = 1        --状态栏
+vim.opt.linebreak = true      --折叠行行号
+vim.opt.number = true         --行号
+vim.opt.relativenumber = true --相对行号
+vim.opt.hlsearch = true       --高亮
+vim.opt.ruler = true          -- “游标卡尺”
+vim.opt.shiftwidth = 2        --自动缩进数
+vim.opt.scrolloff = 3         -- 滚行数
+vim.opt.sidescrolloff = 3     --横滚
+vim.opt.textwidth = 120       --行长度
+vim.opt.wildmenu = true       --补全
+vim.opt.wrap = true
+vim.opt.wrapmargin = 2
+vim.opt.encoding = "UTF-8"
+vim.opt.fillchars = "eob: "
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")

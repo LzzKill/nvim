@@ -20,7 +20,7 @@ local M = {
           }
         }
       })
-      local telescope_plugins = { "fzf", "noice", "ui-select", "notify" }
+      local telescope_plugins = { "fzf", "ui-select", "notify" }
       for _, plugins in ipairs(telescope_plugins) do
         telescope.load_extension(plugins)
       end
