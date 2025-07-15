@@ -1,1 +1,1 @@
-require("modules.LSPManager")("pyright")
+require("module.LSPManager")("pyright")

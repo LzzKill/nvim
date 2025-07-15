@@ -1,1 +1,1 @@
-require("modules.LSPManager")("tsserver")
+require("module.LSPManager")("tsserver")

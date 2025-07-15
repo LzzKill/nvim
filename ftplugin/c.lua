@@ -1,1 +1,1 @@
-require("modules.LSPManager")("clangd")
+require("module.LSPManager")("clangd")

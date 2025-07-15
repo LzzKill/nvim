@@ -48,9 +48,10 @@ return function(LSPName, LSPOption)
 
   if launch(LSPName, LSPOption) then
     logger.log_title(logger.constant.info, "Load server: " .. LSPName .. " was loaded", "LSPManager")
-    if not vim.lsp.get_active_clients()[LSPName] then
-      vim.cmd("LspStart")
-    end
+    -- if not vim.lsp.client.get_act()[LSPName] then
+    --   vim.cmd("LspStart")
+    -- end
+		vim.cmd("LspStart")
   else
     logger.log_title(logger.constant.warning, LSPName .. " wasn't loaded", "LSPManager")
   end
