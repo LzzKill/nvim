@@ -1,3 +1,3 @@
 _G.limit = {}
 
-_G.limit.transparent = true
+_G.limit.transparent = false

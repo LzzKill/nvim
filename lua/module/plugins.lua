@@ -1,114 +1,112 @@
-local M = {
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function() require("config.lualine") end,
-		enable = true
-	},
-	{
-		"nvimdev/lspsaga.vim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons", },
-		config = function() require("lspsaga").setup({}) end,
-		event = "LspAttach"
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
-		lazy = false,
-		build = ":TSUpdate",
-		cmd = {
-			"TSInstall",
-			"TSUninstall",
-			"TSUpdate",
-			"TSUpdateSync",
-			"TSInstallInfo",
-			"TSInstallSync",
-			"TSInstallFromGrammar",
-		},
-		config = function() require("config.nvim-treesitter") end
-	},
-	{
-		"shellRaining/hlchunk.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function() require("config.hlchunk") end
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function() vim.fn["mkdp#util#install"]() end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		config = function() require("config.comment") end,
-		key = { "<space>c", "<space>b", "<space>cc", "<space>cb" }
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		lazy = false, -- neo-tree will lazily load itself
-		cmd = {
-			"Neotree",
-			"NoetreeFocus",
-			"NeoTreeClose",
-			"NeotreeShow"
-		},
-		config = function() require("config.neo-tree") end,
-	},
-	{ "miversen33/netman.nvim",  config = function() require("netman") end },
-	{ "lewis6991/gitsigns.nvim", config = true,                            event = "VeryLazy", cmd = "Gitsigns", },
-	{
-		"akinsho/toggleterm.nvim",
-		branch = "main",
-		cmd = {
-			"ToggleTerm",
-			"TermExec",
-			"ToggleTermToggleAll",
-			"ToggleTermSendCurrentLine",
-			"ToggleTermSendVisualLines",
-			"ToggleTermSendVisualSelection",
-		},
-		config = function() require("config.toggleterm") end,
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "telescope-fzf-native.nvim", "telescope-ui-select.nvim" },
-		config = function() require("config.nvim-telescope") end,
-		cmd = "Telescope",
-		lazy = true
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function() require("config.catppuccin") end
-	},
-	{
-		"rcarriga/nvim-notify", -- TODO: Self done
-		config = function() require("config.notify") end,
-		enable = true,
-	},
-	{ "nvim-lua/plenary.nvim",                    lazy = true },
-	{ "junegunn/vim-peekaboo",                    event = "VeryLazy" },
-	{ "karb94/neoscroll.nvim",                    event = "BufEnter",    config = function() require("config.neoscroll") end },
-	{ "SCJangra/table-nvim",                      ft = "markdown",       config = function() require("config.table-nvim") end },
-	{ 'mg979/vim-visual-multi',                   branch = 'master' },
-	{ "folke/todo-comments.nvim",                 event = "BufEnter",    config = true, },
-	{ "windwp/nvim-autopairs",                    event = "InsertEnter", config = true },
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make",        lazy = true },
-	{ "nvim-telescope/telescope-ui-select.nvim",  lazy = true },
-	{ "folke/lazy.nvim" },
-	{ "MunifTanjim/nui.nvim" },
-	{ "kyazdani42/nvim-web-devicons" },
-	require("config.cmp"),
-	{ "nvimtools/none-ls.nvim",   config = require("config.none-ls"), },
-	{ "neovim/nvim-lspconfig" },
-	{ "ray-x/lsp_signature.nvim", config = true },
-}
+local add = require('mini.deps').add
+local later = require('mini.deps').later
+local now = require('mini.deps').now
 
-return M
+add({ source = "echasnovski/mini.nvim" })
+
+-- Lib
+add({ source = "nvim-lua/plenary.nvim", name = "plenary.nvim", lazy = true })
+add({ source = "MunifTanjim/nui.nvim", name = "nui.nvim", lazy = true })
+add({ source = "kyazdani42/nvim-web-devicons", name = "nvim-web-devicons", lazy = true })
+add({ source = "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true })
+add({ source = "nvim-telescope/telescope-ui-select.nvim", lazy = true })
+add({ source = "miversen33/netman.nvim", name = "netman", lazy = true })
+
+add({ source = "catppuccin/nvim", name = "catppuccin", priority = 1000 })
+now(function() require("config.catppuccin") end)
+
+add({ source = "nvim-lualine/lualine.nvim", depends = { "nvim-web-devicons" } })
+now(function() require("config.lualine") end)
+
+add({
+	source = "nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
+	depends = { "plenary.nvim", "nvim-web-devicons", "nui.nvim", "netman" },
+})
+later(function() require("config.neo-tree") end)
+
+add({
+	source = "nvim-treesitter/nvim-treesitter",
+	branch = "master",
+	build = ":TSUpdate",
+	ft = { "lua", "c", "cpp", "ixx", "python" }
+}
+)
+later(function() require("config.nvim-treesitter") end)
+
+add({ source = "shellRaining/hlchunk.nvim", lazy = true })
+later(function() require("config.hlchunk") end)
+
+-- Markdown 预览
+add({
+	source = "iamcco/markdown-preview.nvim",
+	ft = { "markdown" },
+	build = function() vim.fn["mkdp#util#install"]() end,
+})
+
+add({ source = "numToStr/Comment.nvim", lazy = true })
+later(function() require("config.comment") end)
+
+add({ source = "lewis6991/gitsigns.nvim", lazy = true })
+later(function() require('gitsigns').setup() end)
+
+add({ source = "akinsho/toggleterm.nvim", branch = "main", lazy = true })
+later(
+	function()
+		require("config.toggleterm")
+		require("module.toggleterm")
+	end)
+
+-- 模糊查找
+add({
+	source = "nvim-telescope/telescope.nvim",
+	depends = { "telescope-fzf-native.nvim", "telescope-ui-select.nvim" },
+	lazy = true
+})
+later(function() require("config.nvim-telescope") end)
+
+add({ source = "rcarriga/nvim-notify" })
+later(function() require("config.notify") end)
+
+add({
+	source = "folke/lazydev.nvim",
+	ft = "lua",
+	opts = {
+		library = {
+			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+		},
+	},
+	lazy = true
+})
+
+add({ source = "junegunn/vim-peekaboo", lazy = true })
+
+add({ source = "karb94/neoscroll.nvim", lazy = true })
+later(function() require("config.neoscroll") end)
+
+add({ source = "SCJangra/table-nvim", ft = "markdown", lazy = true })
+later(function() require("config.table-nvim") end)
+
+add({ source = "mg979/vim-visual-multi", branch = "master" })
+
+add({ source = "folke/todo-comments.nvim", lazy = true })
+later(function() require('todo-comments').setup() end)
+
+add({ source = "windwp/nvim-autopairs", lazy = true })
+later(function() require('nvim-autopairs').setup() end)
+
+
+add({ source = "neovim/nvim-lspconfig" })
+add({ source = "ray-x/lsp_signature.nvim" })
+add({ source = "nvimdev/lspsaga.nvim", depends = { "nvim-treesitter", "nvim-web-devicons" }, lazy = true })
+add({ source = "nvimtools/none-ls.nvim", lazy = true })
+later(function() require("config.lspsaga") end)
+later(function() require('lsp_signature').setup() end)
+later(function() require("config.none-ls") end)
+
+add({ source = "rafamadriz/friendly-snippets", lazy = true })
+add({ source = "hrsh7th/cmp-nvim-lsp", lazy = true })
+add({ source = "hrsh7th/nvim-cmp", lazy = true })
+add({ source = "hrsh7th/cmp-buffer", lazy = true })
+add({ source = "saadparwaiz1/cmp_luasnip", lazy = true })
+later(function() require("config.cmp") end)

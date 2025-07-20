@@ -2,16 +2,14 @@ local Map = {
   { "U",         "<C-r>" },
   { "<leader>[", vim.diagnostic.goto_prev },
   { "<leader>]", vim.diagnostic.goto_next },
-  { "<leader>l", "<cmd>Lazy<cr>" },
   { "<leader>t", "<cmd>Telescope<cr>" },
   { "<leader>q", vim.diagnostic.setloclist },
   { "<space>w",  "<cmd>w<cr>" },
   { "<space>q",  "<cmd>q<cr>" },
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
-  { "<space>l",  "<cmd>Neotree left<cr>" },
   { "<space>e",  "<cmd>Neotree float<cr>" },
-  { "<space>r",  "<cmd>Neotree left<cr>" },
+  { "<space>r",  "<cmd>Neotree right<cr>" },
   { "<space>lp", vim.diagnostic.open_float },
   { "<space>t",  "<cmd>ToggleTerm<cr>" }
 }
