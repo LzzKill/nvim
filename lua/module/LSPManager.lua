@@ -19,8 +19,8 @@ local on_attach_build = function(LSPOption)
 		map("v", "<space>lA", "<cmd>Lspsaga range_code_action<CR>", opts)     -- 范围代码操作
 		map("n", "<space>lp", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- 显示行诊断
 		map("n", "<space>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- 显示光标诊断
-		map("n", "<space>[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)  -- 上一个诊断
-		map("n", "<space>]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)  -- 下一个诊断
+		map("n", "<space>[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)   -- 上一个诊断
+		map("n", "<space>]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)   -- 下一个诊断
 		map("n", "<space>lo", "<cmd>Lspsaga outline<CR>", opts)               -- 大纲视图
 		map("n", "<space>ls", "<cmd>Lspsaga symbol<CR>", opts)                -- 文档符号
 		map("n", "<space>lI", "<cmd>Lspsaga incoming_calls<CR>", opts)        -- 传入调用
@@ -38,7 +38,7 @@ end
 ---@param option table?
 local launch = function(name, option)
 	if name == "" then return false end -- nil
-	-- option = option or { on_attach = on_attach_build() }
+	option = option or { }
 	option.on_attach = option.on_attach or on_attach_build()
 	vim.lsp.config(name, option)
 	vim.lsp.enable(name)

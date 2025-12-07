@@ -1,8 +1,5 @@
-require("basic.Keymap")
 require("basic.Setting")
-require("module.limit")
 
--- Using mini.nvim
 -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
 local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.nvim'
@@ -20,6 +17,10 @@ end
 -- Set up 'mini.deps' (customize to your liking)
 require('mini.deps').setup({ path = { package = path_package } })
 require('module.plugins')
+
+require("mini.pairs").setup()
+
+require("basic.Keymap")
 
 -- vim.g.mapleader = " "
 -- vim.g.maplocalleader = "\\"

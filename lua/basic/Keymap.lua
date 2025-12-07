@@ -8,9 +8,8 @@ local Map = {
   { "<space>q",  "<cmd>q<cr>" },
   { "<space>Q",  "<cmd>q!<cr>" },
   { "<space>f",  "<cmd>Telescope fd<cr>" },
-  { "<space>e",  "<cmd>Neotree float<cr>" },
-  { "<space>r",  "<cmd>Neotree right<cr>" },
-  { "<space>lp", vim.diagnostic.open_float },
+  { "<space>e",  "<cmd>Neotree right<cr>" },
+  { "<space>pp", vim.diagnostic.open_float },
   { "<space>t",  "<cmd>ToggleTerm<cr>" }
 }
 

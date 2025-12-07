@@ -1,3 +1,6 @@
+
+-- NOTE: When NEOVIM 0.12, I use vim.plug; 
+
 local add = require('mini.deps').add
 local later = require('mini.deps').later
 local now = require('mini.deps').now
@@ -91,10 +94,6 @@ add({ source = "mg979/vim-visual-multi", branch = "master" })
 
 add({ source = "folke/todo-comments.nvim", lazy = true })
 later(function() require('todo-comments').setup() end)
-
-add({ source = "windwp/nvim-autopairs", lazy = true })
-later(function() require('nvim-autopairs').setup() end)
-
 
 add({ source = "neovim/nvim-lspconfig" })
 add({ source = "ray-x/lsp_signature.nvim" })
