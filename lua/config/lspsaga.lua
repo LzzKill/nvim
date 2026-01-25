@@ -24,6 +24,9 @@ require("lspsaga").setup({
 		sign = true,
 		virtual_text = false,
 	},
+	code_action = {
+		enable = false,
+	},
 	diagnostic = {
 		jump_num_shortcut = true,
 		max_width = 0.7,

@@ -1,5 +1,4 @@
-
--- NOTE: When NEOVIM 0.12, I use vim.plug; 
+-- NOTE: When NEOVIM 0.12, I use vim.plug;
 
 local add = require('mini.deps').add
 local later = require('mini.deps').later
@@ -50,8 +49,6 @@ add({
 add({ source = "numToStr/Comment.nvim", lazy = true })
 later(function() require("config.comment") end)
 
-add({ source = "lewis6991/gitsigns.nvim", lazy = true })
-later(function() require('gitsigns').setup() end)
 
 add({ source = "akinsho/toggleterm.nvim", branch = "main", lazy = true })
 later(
