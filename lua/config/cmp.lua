@@ -24,7 +24,10 @@ cmp.setup({
 					["<A-j>"] = cmp.mapping.scroll_docs(4),
 					["<A-Space>"] = cmp.mapping.complete(),
 					["<A-e>"] = cmp.mapping.abort(),
-					["<A-n>"] = cmp.mapping.confirm({ select = true }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<A-n>"] = cmp.mapping.confirm({
+						select = true,
+						behavior = cmp.ConfirmBehavior.Replace
+					}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				},
 				sources = cmp.config.sources({ { name = "nvim_lsp" }, { name = "luasnip" } },
 					{ { name = "buffer" }, { name = "treesitter" }, { name = "nvim_lsp_signature_help" } })

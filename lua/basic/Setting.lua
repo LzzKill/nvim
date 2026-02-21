@@ -1,7 +1,7 @@
 local Configs = {
   termguicolors = true,  --真彩色
   tabstop = 2,           --tab显示宽度
-  -- expandtab = true,     -- tab输入变空格
+  expandtab = true,     -- tab输入变空格
   laststatus = 1,        --状态栏
   linebreak = true,      --折叠行行号
   number = true,         --行号
