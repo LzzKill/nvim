@@ -23,3 +23,4 @@ for i, j in pairs(Configs) do
   vim.opt[i] = j
 end
 
+vim.filetype.add({ extension = { ixx = "cpp" } })
